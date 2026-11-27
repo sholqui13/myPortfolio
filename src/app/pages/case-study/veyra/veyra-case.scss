@@ -1,0 +1,196 @@
+/* Caso Veyra — Bloques que solo usa este caso; el marco, los temas y los bloques comunes están en ../case-study.scss. 
+ * Todo va dentro de .g-case (host de CaseShell): así gana a los estilos base
+ * del marco, que Angular inyecta después de los de esta página.
+ */
+
+.g-case {
+  /* Cabecera con el texto a la derecha (Veyra · Identidad). */
+  /* Mismas proporciones que .g-case-split (El reto): título a la izquierda,
+     texto a la derecha; al no caber, una columna alineada a la izquierda. */
+  .g-case-head--split {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-4) var(--space-12);
+
+    > div {
+      flex: 1 1 340px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    > .g-case-lead {
+      flex: 1 1 520px;
+      max-width: none;
+    }
+  }
+
+  /* Veyra: el hero no lleva padding inferior; el mockup apoya en su borde. */
+  .g-case-hero--flush .g-case-hero__inner {
+    padding-bottom: 0;
+  }
+
+  /* Marca del producto (Veyra). */
+  .g-case-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font: 700 26px/1 var(--case-font-display);
+
+    &__mark {
+      width: var(--control-md);
+      height: var(--control-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      background: var(--case-accent);
+      color: var(--case-on-accent);
+    }
+  }
+
+  .g-case-meta {
+    margin: 0;
+    font: var(--text-tag);
+    font-family: var(--case-font-mono);
+    letter-spacing: 0.12em;
+    color: var(--case-accent);
+  }
+
+  /* Veyra: marco dentro del hero, apoyado en su borde inferior. */
+  .g-case-device--in-hero {
+    margin-top: var(--space-8);
+
+    .g-case-device__frame {
+      padding: 10px 10px 0;
+      border-bottom: 0;
+      border-radius: 18px 18px 0 0;
+      background: var(--case-frame, var(--case-dark-raised));
+      box-shadow: none;
+
+      img {
+        border-radius: 10px 10px 0 0;
+      }
+    }
+
+    .g-case-device__phone {
+      bottom: var(--space-6);
+      border-color: var(--case-dark);
+    }
+  }
+
+  /* Paso de un flujo (Veyra · Flujo). */
+  .g-case-step {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: var(--space-4);
+    border-radius: var(--case-radius-card);
+    border: 1px solid var(--case-border);
+    background: var(--case-surface);
+
+    &__num {
+      font: var(--text-tag);
+      font-family: var(--case-font-mono);
+      font-weight: 400;
+      color: var(--case-kicker);
+    }
+
+    &__title {
+      font-weight: 600;
+    }
+
+    &__text {
+      font: var(--text-body-sm);
+      font-size: 14px;
+      color: var(--case-ink-muted);
+    }
+
+    &--dark {
+      border-color: var(--case-dark);
+      background: var(--case-dark);
+      color: var(--case-on-dark);
+
+      .g-case-step__num {
+        color: var(--case-accent);
+      }
+
+      .g-case-step__text {
+        color: var(--case-on-dark-soft);
+      }
+    }
+
+    &--risk {
+      border-color: var(--case-risk-border);
+      background: var(--case-risk-bg);
+
+      .g-case-step__num {
+        color: var(--case-risk-ink);
+      }
+    }
+  }
+
+  .g-case-chips--on-dark {
+    font-family: var(--case-font-mono);
+    font-weight: 400;
+
+    li {
+      padding: 7px 14px;
+      border: 1px solid var(--case-dark-line, var(--case-dark-border));
+      background: none;
+      color: var(--case-on-dark);
+    }
+
+    .g-case-chips__accent {
+      border-color: var(--case-accent);
+      background: var(--case-accent);
+      color: var(--case-on-accent);
+      font-weight: 500;
+    }
+  }
+
+  .g-case-rule {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px;
+    border-radius: var(--case-radius-card);
+    border: 1px solid var(--case-dark-border);
+    background: var(--case-dark-raised);
+
+    &__value {
+      font: 500 22px/1.2 var(--case-font-mono);
+      color: var(--case-accent);
+    }
+
+    &__text {
+      font: var(--text-body-sm);
+      color: var(--case-on-dark-soft);
+    }
+  }
+
+  /* ---------- Ajustes por bloque ---------- */
+
+  .g-case-lead--narrow {
+    max-width: 520px;
+  }
+
+  /* Lámina sobre fondo blanco (Veyra · Identidad y Sistema). */
+  .g-case-img--card {
+    border-radius: 18px;
+    background: var(--case-surface);
+  }
+
+  .g-case-notes {
+    margin-top: var(--space-6);
+
+    .g-case-card {
+      padding: var(--space-5);
+      gap: 6px;
+    }
+  }
+
+  .g-case-band--stack {
+    margin-top: 0;
+  }
+}

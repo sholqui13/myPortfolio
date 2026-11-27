@@ -1,0 +1,336 @@
+<g-case-shell
+  slug="novasec"
+  [forward]="{ label: 'Siguiente: Veyra', route: '/proyectos/veyra' }"
+  [next]="{ slug: 'veyra', title: 'Veyra: monitoreo de flotas en tiempo real' }"
+  note="Novasec es una maqueta funcional; los casos y usuarios son datos simulados."
+>
+  <!-- HERO -->
+  <section class="g-case-hero g-case-on-dark" aria-labelledby="caso-title">
+    <img class="g-case-hero__bg" [ngSrc]="img + 'novasec-hero-fondo.webp'" fill priority alt="" />
+    <div class="g-case-hero__shade" aria-hidden="true"></div>
+    <div class="g-container g-case-hero__inner">
+      <nav aria-label="Ruta de navegación">
+        <ol class="g-case-crumbs">
+          <li><a routerLink="/" fragment="portafolio">Portafolio</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Novasec</li>
+        </ol>
+      </nav>
+      <p class="g-case-badge">
+        <span class="g-case-badge__dot" aria-hidden="true"></span>Caso de estudio · Diseño +
+        Front-End
+      </p>
+      <h1 class="g-case-hero__title" id="caso-title">
+        Visibilidad inmediata para responder con <em>precisión</em>.
+      </h1>
+      <p class="g-case-hero__lead">
+        Novasec es una plataforma de operaciones de seguridad para Inovisec: centraliza las alertas
+        físicas, ubica cada incidente sobre el mapa del campus y coordina la respuesta desde un
+        único espacio. La diseñé en Figma, con su propio sistema de diseño, y la construí en
+        Angular.
+      </p>
+      <div class="g-case-actions">
+        <a
+          class="g-case-btn g-case-btn--primary"
+          href="https://sholqui13.github.io/Novasec/"
+          target="_blank"
+          rel="noopener"
+        >
+          <g-icon name="external" size="sm" />Probar la demo<span class="g-sr">
+            (abre en una pestaña nueva)</span
+          >
+        </a>
+        <a
+          class="g-case-btn g-case-btn--outline"
+          href="https://github.com/sholqui13/Novasec"
+          target="_blank"
+          rel="noopener"
+        >
+          <g-icon name="github" size="sm" />Ver código<span class="g-sr">
+            en GitHub (abre en una pestaña nueva)</span
+          >
+        </a>
+        <a
+          class="g-case-btn g-case-btn--outline"
+          href="https://www.figma.com/design/nridOAnI9WMKvC8aOqC198/Novasec-DS"
+          target="_blank"
+          rel="noopener"
+        >
+          <g-icon name="figma" size="sm" />Ver en Figma<span class="g-sr">
+            (abre en una pestaña nueva)</span
+          >
+        </a>
+      </div>
+      <dl class="g-case-facts g-case-facts--joined">
+        <div>
+          <dt>Mi rol</dt>
+          <dd>Diseño UX/UI y desarrollo Front-End</dd>
+        </div>
+        <div>
+          <dt>Para</dt>
+          <dd>Inovisec · maqueta funcional</dd>
+        </div>
+        <div>
+          <dt>Entregables</dt>
+          <dd>Design system, pantallas y app en Angular</dd>
+        </div>
+        <div>
+          <dt>Plataformas</dt>
+          <dd>Escritorio · tablet · móvil</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- VISTA PRINCIPAL -->
+  <section class="g-case-shot" aria-label="Vista del producto">
+    <figure class="g-container g-case-device">
+      <div class="g-case-device__frame">
+        <img
+          ngSrc="assets/img/novasec-desktop.webp"
+          width="1440"
+          height="900"
+          alt="Dashboard de Novasec: mapa del campus con tres casos activos y el panel del caso 1042, intento de acceso no autorizado en Server Room B."
+        />
+      </div>
+      <img
+        class="g-case-device__phone"
+        ngSrc="assets/img/novasec-mobile.webp"
+        width="390"
+        height="780"
+        alt="El mismo dashboard en móvil: el mapa arriba y el caso seleccionado debajo."
+      />
+      <figcaption>Dashboard con caso seleccionado, en escritorio y en móvil.</figcaption>
+    </figure>
+  </section>
+
+  <!-- RETO -->
+  <section class="g-container g-case-section g-case-split" aria-labelledby="reto-title">
+    <div class="g-case-split__title">
+      <p class="g-case-kicker">01 · El reto</p>
+      <h2 class="g-case-h2" id="reto-title">Cada segundo cuenta cuando suena una alerta.</h2>
+    </div>
+    <div class="g-case-split__body">
+      <p>
+        Un analista de seguridad necesita saber, de un vistazo, qué está pasando, dónde y qué tan
+        grave es. Si la información está repartida en varias herramientas, la respuesta se retrasa.
+      </p>
+      <p>
+        El objetivo fue llevar todo a una sola vista: los casos activos sobre el mapa del campus, el
+        detalle del incidente al lado y estados claros para cuando los datos están cargando, fallan
+        o no hay casos.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="g-container g-case-section" aria-labelledby="proc-title">
+    <div class="g-case-head">
+      <p class="g-case-kicker">02 · Del diseño al código</p>
+      <h2 class="g-case-h2" id="proc-title">Un mismo sistema, de Figma a Angular</h2>
+    </div>
+    <ol class="g-case-grid">
+      <li class="g-case-card">
+        <span class="g-case-card__num" aria-hidden="true">1</span>
+        <h3 class="g-case-card__title">Fundamentos</h3>
+        <p class="g-case-card__text">
+          Pasé a código los estilos de Figma (colores, tipografía, espaciados, radios, sombras y
+          breakpoints) como variables CSS <code>--nvs-*</code>, respetando los valores exactos.
+        </p>
+      </li>
+      <li class="g-case-card">
+        <span class="g-case-card__num" aria-hidden="true">2</span>
+        <h3 class="g-case-card__title">Componentes</h3>
+        <p class="g-case-card__text">
+          Construí la librería reutilizable: botón, input, badge, alerta, toast, modal, avatar,
+          breadcrumb, skeleton y estados de feedback, cada uno revisado contra Figma Dev Mode.
+        </p>
+      </li>
+      <li class="g-case-card">
+        <span class="g-case-card__num" aria-hidden="true">3</span>
+        <h3 class="g-case-card__title">Layout y pantallas</h3>
+        <p class="g-case-card__text">
+          Armé el marco de la app (header y sidebar) y las pantallas de inicio de sesión, dashboard
+          con mapa y detalle del caso.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- SISTEMA DE DISEÑO -->
+  <section class="g-container g-case-section g-case-feature" aria-labelledby="ds-title">
+    <div class="g-case-feature__text">
+      <p class="g-case-kicker">03 · Novasec Design System</p>
+      <h2 class="g-case-h2" id="ds-title">Tokens con modo claro y oscuro</h2>
+      <p class="g-case-lead">
+        Primitivos de marca, neutrales y alias semánticos. El azul profundo transmite control, el
+        cian marca la acción y el ámbar señala lo que requiere atención.
+      </p>
+      <ul class="g-case-swatches" aria-label="Colores de marca">
+        <li>
+          <span style="--g-swatch: var(--case-dark)" aria-hidden="true"></span>Primary #0B1F2D
+        </li>
+        <li>
+          <span style="--g-swatch: var(--case-accent)" aria-hidden="true"></span>Secondary #1EC8C8
+        </li>
+        <li>
+          <span style="--g-swatch: var(--case-amber)" aria-hidden="true"></span>Accent #F5A623
+        </li>
+      </ul>
+      <ul class="g-case-chips" aria-label="Reglas del sistema">
+        <li>Nunito</li>
+        <li>Escala de 4 px</li>
+        <li>WCAG AA</li>
+        <li>Objetivos de 44 × 44 px</li>
+      </ul>
+    </div>
+    <figure class="g-case-feature__media">
+      <img
+        class="g-case-img g-case-img--raised"
+        [ngSrc]="img + 'novasec-tokens.webp'"
+        width="1200"
+        height="666"
+        alt="Página de color tokens del Novasec Design System: colores de marca primary, secondary, accent, success y danger, y la escala de neutrales del 50 al 900."
+      />
+    </figure>
+  </section>
+
+  <!-- PANTALLAS Y ESTADOS -->
+  <section class="g-container g-case-section" aria-labelledby="est-title">
+    <div class="g-case-head">
+      <p class="g-case-kicker">04 · Pantallas y estados</p>
+      <h2 class="g-case-h2" id="est-title">Diseñado también para cuando algo sale mal</h2>
+      <p class="g-case-lead">
+        Ocho estados en escritorio, tablet y móvil: inicio de sesión, credenciales inválidas,
+        dashboard vacío, cargando, con error, con caso seleccionado, detalle del caso y confirmación
+        de cierre de sesión.
+      </p>
+    </div>
+    <div class="g-case-gallery">
+      <figure>
+        <img
+          class="g-case-img"
+          [ngSrc]="img + 'novasec-login.webp'"
+          width="1200"
+          height="750"
+          alt="Pantalla de inicio de sesión de Novasec: a la izquierda el mensaje de valor sobre una foto nocturna de las instalaciones, a la derecha el formulario de usuario y contraseña."
+        />
+        <figcaption>
+          <strong>Inicio de sesión.</strong> Ante un error se marcan los dos campos sin decir cuál
+          falló, para no revelar qué usuarios existen.
+        </figcaption>
+      </figure>
+      <figure>
+        <img
+          class="g-case-img"
+          [ngSrc]="img + 'novasec-detalle.webp'"
+          width="1200"
+          height="836"
+          alt="Detalle del caso 1042: descripción del incidente, alerta de validación de credenciales en curso, ficha con estado, prioridad y responsable, y mapa con la ubicación."
+        />
+        <figcaption>
+          <strong>Detalle del caso.</strong> Toda la información para decidir: qué pasó, dónde,
+          quién lo atiende y en qué estado está.
+        </figcaption>
+      </figure>
+    </div>
+    <div class="g-case-band g-case-on-dark">
+      <div class="g-case-band__text">
+        <h3>Carga y error en móvil</h3>
+        <p>
+          El skeleton reserva el mismo espacio que el contenido real, para que nada salte al cargar.
+          Si los casos no llegan, el mensaje explica qué pasó, conserva los filtros y ofrece
+          reintentar sin salir del dashboard.
+        </p>
+      </div>
+      <div class="g-case-band__phones">
+        <img
+          [ngSrc]="img + 'novasec-movil-cargando.webp'"
+          width="390"
+          height="844"
+          alt="Dashboard móvil cargando, con bloques skeleton en lugar del mapa y del caso."
+        />
+        <img
+          [ngSrc]="img + 'novasec-movil-error.webp'"
+          width="390"
+          height="844"
+          alt="Dashboard móvil con error: mensaje No pudimos cargar los casos y botón Reintentar."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- DECISIONES -->
+  <section class="g-container g-case-section" aria-labelledby="dec-title">
+    <div class="g-case-head">
+      <p class="g-case-kicker">05 · Decisiones de desarrollo</p>
+      <h2 class="g-case-h2" id="dec-title">Código pensado para crecer</h2>
+    </div>
+    <ul class="g-case-grid" style="--g-case-min: 340px">
+      <li class="g-case-card g-case-card--dot">
+        <div>
+          <h3 class="g-case-card__title">Componentes standalone y signals</h3>
+          <p class="g-case-card__text">
+            Sin NgModule; estado con signals de Angular y detección de cambios OnPush en todos los
+            componentes.
+          </p>
+        </div>
+      </li>
+      <li class="g-case-card g-case-card--dot">
+        <div>
+          <h3 class="g-case-card__title">Datos detrás de una interfaz</h3>
+          <p class="g-case-card__text">
+            Las pantallas consumen AuthApi y CasesApi. Hoy los datos son simulados; conectar un
+            backend real no cambia ninguna pantalla.
+          </p>
+        </div>
+      </li>
+      <li class="g-case-card g-case-card--dot" style="--g-dot: var(--case-amber)">
+        <div>
+          <h3 class="g-case-card__title">Accesibilidad</h3>
+          <p class="g-case-card__text">
+            Etiquetas semánticas, errores asociados a cada campo, anuncios con role="alert" y
+            role="status", y foco visible con teclado.
+          </p>
+        </div>
+      </li>
+      <li class="g-case-card g-case-card--dot" style="--g-dot: var(--case-amber)">
+        <div>
+          <h3 class="g-case-card__title">Responsive en tres tamaños</h3>
+          <p class="g-case-card__text">
+            Móvil, tablet desde 600 px y escritorio desde 1024 px. En móvil el menú lateral se abre
+            desde el header.
+          </p>
+        </div>
+      </li>
+      <li class="g-case-card g-case-card--dot" style="--g-dot: var(--case-green)">
+        <div>
+          <h3 class="g-case-card__title">Mapa interactivo con Leaflet</h3>
+          <p class="g-case-card__text">
+            El campus es una imagen en coordenadas simples; cada caso guarda su posición sobre ella.
+          </p>
+        </div>
+      </li>
+      <li class="g-case-card g-case-card--dot" style="--g-dot: var(--case-green)">
+        <div>
+          <h3 class="g-case-card__title">Pruebas en cada pieza</h3>
+          <p class="g-case-card__text">
+            Cada componente, servicio y pantalla tiene pruebas en Vitest: carga, error, validación,
+            navegación y accesibilidad básica.
+          </p>
+        </div>
+      </li>
+    </ul>
+    <ul class="g-case-chips g-case-chips--outline g-case-tech" aria-label="Tecnologías">
+      <li>Figma</li>
+      <li>Angular 22</li>
+      <li>TypeScript estricto</li>
+      <li>SCSS + tokens CSS</li>
+      <li>Angular SSR</li>
+      <li>Leaflet</li>
+      <li>Lucide</li>
+      <li>Vitest</li>
+      <li>GitHub Pages</li>
+    </ul>
+  </section>
+</g-case-shell>
