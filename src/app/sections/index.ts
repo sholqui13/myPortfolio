@@ -3,6 +3,7 @@ export * from './mobile-menu/mobile-menu';
 export * from './hero/hero';
 export * from './services-section/services-section';
 export * from './services-section/service-illustration';
+export * from './skills-section/skills-section';
 export * from './timeline/timeline';
 export * from './why-section/why-section';
 export * from './project-carousel/project-carousel';
