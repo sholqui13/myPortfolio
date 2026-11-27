@@ -55,5 +55,17 @@ export const PROJECTS: Project[] = [
     tags: ['Angular', 'WCAG', 'Umbraco'],
     tint: 'var(--violet-100)',
     caseHref: '/proyectos/avianca',
+    desk: {
+      src: 'assets/img/casos/avianca-inicio.webp',
+      alt: 'Inicio de avianca.com en escritorio: buscador de vuelos de Bogotá a Medellín con el selector de pasajeros abierto.',
+      width: 1681,
+      height: 938,
+    },
+    mob: {
+      src: 'assets/img/casos/avianca-movil-ofertas.webp',
+      alt: 'Avianca en móvil: ofertas desde Medellín con tarjetas de Cali y Bogotá y su precio de ida y vuelta.',
+      width: 426,
+      height: 790,
+    },
   },
 ];
