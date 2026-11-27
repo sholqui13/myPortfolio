@@ -170,34 +170,11 @@ $hero-3col: 1004px;
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
-  width: w(440);
+  /* Retrato cuadrado (900 × 900) a todo el ancho del escenario: la cabeza
+     sobresale del círculo y los hombros caben dentro de su diámetro. */
+  width: w(460);
   max-width: none;
   height: auto;
-  /* La foto original llega cortada en la coronilla: la mitad superior se
-     recorta con el arco del círculo (420 de diámetro, misma base y centro)
-     para que no se vea el borde recto. La mitad inferior queda libre y los
-     hombros pueden salir del círculo. Medidas en la caja de la foto:
-     440 × 466 (800 × 847 escalado); centro del círculo a 256 px del borde
-     superior, radio 210. */
-  $photo-w: 440;
-  $photo-h: calc($photo-w * 847 / 800);
-  $r: 210;
-  $cy: calc($photo-h - $r);
-  mask-image:
-    radial-gradient(
-      ellipse calc($r / $photo-w * 100%) calc($r / $photo-h * 100%) at 50%
-        calc($cy / $photo-h * 100%),
-      #000 99.5%,
-      transparent 100%
-    ),
-    linear-gradient(#000, #000);
-  mask-size:
-    100% 100%,
-    100% calc($r / $photo-h * 100%);
-  mask-position:
-    0 0,
-    0 100%;
-  mask-repeat: no-repeat;
 }
 
 .g-hero__doodle {

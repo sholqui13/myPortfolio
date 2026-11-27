@@ -38,8 +38,8 @@ import { StatItem } from '../../patterns';
           <img
             class="g-hero__photo"
             [ngSrc]="photo()"
-            width="800"
-            height="847"
+            width="900"
+            height="900"
             [alt]="photoAlt()"
             priority
           />
@@ -68,6 +68,6 @@ export class Hero {
   );
   readonly statValue = input('4+');
   readonly statLabel = input('años de experiencia Front-End');
-  readonly photo = input('assets/img/stefania-retrato-recorte.webp');
+  readonly photo = input('assets/img/stefania-retrato.webp');
   readonly photoAlt = input('Retrato de Stefania Holguin sonriendo, con camisa verde oliva');
 }

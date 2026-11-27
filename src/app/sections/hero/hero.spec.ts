@@ -10,8 +10,8 @@ describe('Hero', () => {
     expect(el.querySelector('h1')?.textContent).toContain('Stefania');
     const img = el.querySelector<HTMLImageElement>('.g-hero__photo')!;
     expect(img.alt).toContain('Retrato');
-    expect(img.getAttribute('width')).toBe('800');
-    expect(img.getAttribute('height')).toBe('847');
+    expect(img.getAttribute('width')).toBe('900');
+    expect(img.getAttribute('height')).toBe('900');
     el.querySelectorAll('svg').forEach((s) => expect(s.getAttribute('aria-hidden')).toBe('true'));
   });
 });
