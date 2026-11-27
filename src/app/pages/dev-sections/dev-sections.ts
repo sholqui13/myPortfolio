@@ -41,7 +41,7 @@ const FAKE_CONTACT: Pick<ContactService, 'send'> = {
   providers: [{ provide: ContactService, useValue: FAKE_CONTACT }],
   encapsulation: ViewEncapsulation.None,
   template: `
-    <a class="g-skip" href="/dev/organismos#contenido">Saltar al contenido</a>
+    <a class="g-skip" href="dev/organismos#contenido">Saltar al contenido</a>
     <p class="g-dev-label g-container">SiteHeader (≥ 1024 px) · MobileMenu (&lt; 1024 px)</p>
     <g-site-header />
     <div class="g-container g-dev-mobile"><g-mobile-menu /></div>
