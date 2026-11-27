@@ -4,5 +4,5 @@
  * Vacío = el formulario de contacto avisa que no está configurado.
  */
 export const environment = {
-  contactEndpoint: '',
+  contactEndpoint: 'https://formspree.io/f/xkjrangy',
 };
