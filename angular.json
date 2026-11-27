@@ -30,7 +30,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/tokens.css",
+              "src/styles/base.scss"
             ],
             "server": "src/main.server.ts",
             "outputMode": "static"

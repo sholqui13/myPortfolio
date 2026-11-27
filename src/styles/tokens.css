@@ -1,0 +1,278 @@
+/* Genuina Design System — generated from tokens.json */
+:root, [data-theme="light"] {
+  --navy-900: #0d1b3d; /* Primitivo. Azul marino de Genuina: tinta principal, bloques oscuros, menú y pie de página. */
+  --navy-800: #1a2a55; /* Primitivo. Tarjetas y botones circulares sobre fondos navy-900. */
+  --navy-700: #2b3a63; /* Primitivo. Divisores sobre fondos navy-900. */
+  --violet-700: #4f33ae; /* Primitivo. Hover de enlaces y botones violeta. */
+  --violet-500: #6c4dd3; /* Primitivo. Violeta de marca ("Creatividad"). 5.8:1 sobre blanco: válido para texto. */
+  --violet-100: #e9e4fa; /* Primitivo. Tinte violeta para fondos de mockups y estados suaves. */
+  --pink-500: #ff4da6; /* Primitivo. Rosa de marca ("Pasión"). Solo rellenos y decoración: 3.1:1 sobre blanco, NUNCA texto sobre claro. */
+  --orange-400: #ffb347; /* Primitivo. Naranja de marca ("Energía"). Rellenos, palabras destacadas sobre navy y foco sobre oscuro. */
+  --orange-100: #ffe2c2; /* Primitivo. Tinte naranja para fondos ilustrativos. */
+  --teal-400: #2ec4b6; /* Primitivo. Turquesa de marca ("Comunicación"). Rellenos e íconos de verificación; no texto sobre claro. */
+  --teal-700: #1c7a70; /* Primitivo. Turquesa oscuro para texto de éxito: 5.2:1 sobre blanco. */
+  --teal-100: #ddf5f2; /* Primitivo. Tinte turquesa para fondos ilustrativos. */
+  --gray-50: #f6f7fb; /* Primitivo. "Equilibrio": fondo de página. */
+  --white: #ffffff; /* Primitivo. Superficies elevadas y texto sobre navy. */
+  --slate-600: #3b4563; /* Primitivo. Texto secundario sobre claro: 8.9:1 sobre gray-50. */
+  --slate-300: #c9cee0; /* Primitivo. Texto secundario sobre navy-900 (10:1) y navy-800. */
+  --slate-200: #dde0ec; /* Primitivo. Bordes de tarjetas y etiquetas sobre claro. */
+  --slate-100: #e2e5ef; /* Primitivo. Líneas de contenido en mockups y skeletons. */
+  --surface: var(--gray-50); /* Fondo de página. */
+  --surface-raised: var(--white); /* Tarjetas, campos y bloques claros sobre surface. */
+  --surface-inverse: var(--navy-900); /* Secciones oscuras: menú, servicios, pie de página. */
+  --surface-inverse-raised: var(--navy-800); /* Tarjetas dentro de una sección surface-inverse. */
+  --ink: var(--navy-900); /* Texto principal sobre surface y surface-raised (15:1). */
+  --ink-muted: var(--slate-600); /* Texto secundario y descripciones sobre surface y surface-raised. */
+  --ink-inverse: var(--white); /* Texto principal sobre surface-inverse y surface-inverse-raised. */
+  --ink-inverse-muted: var(--slate-300); /* Texto secundario sobre surface-inverse. */
+  --action: var(--violet-500); /* Botón primario, enlaces, nombre destacado en titulares. */
+  --action-hover: var(--violet-700); /* Hover de enlaces y del botón primario. */
+  --on-action: var(--white); /* Texto sobre action. */
+  --highlight: var(--pink-500); /* Botón de énfasis (Portafolio), palabras destacadas sobre navy, decoración. */
+  --on-highlight: var(--navy-900); /* Texto sobre highlight (5.5:1). Nunca blanco sobre rosa. */
+  --attention: var(--orange-400); /* Acento cálido: palabras destacadas sobre navy, círculos decorativos, botón de descarga. */
+  --on-attention: var(--navy-900); /* Texto e íconos sobre attention (9.4:1). */
+  --success: var(--teal-400); /* Íconos de verificación y estados disponibles (relleno). */
+  --success-text: var(--teal-700); /* Mensajes de confirmación en texto sobre claro. */
+  --border: var(--slate-200); /* Bordes de tarjetas, etiquetas y controles sobre claro. */
+  --border-inverse: var(--navy-700); /* Divisores sobre surface-inverse. */
+  --focus-ring: var(--violet-500); /* Anillo de foco de 3 px con 3 px de separación sobre fondos claros. */
+  --focus-ring-inverse: var(--orange-400); /* Anillo de foco sobre surface-inverse. */
+  --shadow-sm: 0 10px 24px -14px rgba(13,27,61,.5); /* Hover de botones. */
+  --shadow-md: 0 24px 48px -28px rgba(13,27,61,.55); /* Capturas de proyecto y mockups. */
+  --shadow-lg: 0 24px 40px -20px rgba(13,27,61,.6); /* Teléfono superpuesto sobre la captura de escritorio. */
+}
+:root {
+  --space-1: 4px; /* Separación mínima entre ícono y texto pequeño. */
+  --space-2: 8px; /* Gap entre etiquetas; gap de botones de ícono. */
+  --space-3: 12px; /* Gap entre botones de un grupo. */
+  --space-4: 16px; /* Gap entre elementos de una tarjeta. */
+  --space-5: 20px; /* Gap de grillas de tarjetas; padding horizontal de botones. */
+  --space-6: 24px; /* Gutter de página (padding lateral del contenedor) y padding de tarjetas. */
+  --space-8: 32px; /* Gap entre columnas; padding interno de bloques. */
+  --space-10: 40px; /* Gap entre texto e imagen en secciones de dos columnas. */
+  --space-12: 48px; /* Padding de secciones oscuras en escritorio. */
+  --space-18: 72px; /* Separación entre secciones en móvil. */
+  --space-24: 96px; /* Separación entre secciones en escritorio. */
+  --radius-sm: 10px; /* Mockups y elementos internos pequeños. */
+  --radius-md: 14px; /* Íconos en caja, campos internos, capturas. */
+  --radius-lg: 26px; /* Tarjetas (servicios, proyecto). */
+  --radius-xl: 36px; /* Bloques grandes: secciones oscuras, hero, contacto. */
+  --radius-pill: 999px; /* Botones, etiquetas, menú, campo de correo. */
+  --radius-round: 50%; /* Botones de ícono, avatares, círculos decorativos. */
+  --bp-mobile: 390px; /* Ancho de diseño móvil. */
+  --bp-tablet: 768px; /* Desde aquí: dos columnas en hero y secciones de texto + imagen. */
+  --bp-desktop: 1024px; /* Desde aquí: menú completo en una fila y grillas de 3 columnas. */
+  --bp-wide: 1440px; /* Ancho de diseño de escritorio. */
+  --container-max: 1240px; /* Ancho máximo del contenido (más 2 × space-6 de gutter). */
+  --control-min: 44px; /* Altura mínima de cualquier elemento interactivo (WCAG 2.5.8). */
+  --control-md: 48px; /* Altura de botones y del campo de correo. */
+  --control-lg: 52px; /* Botones de carrusel. */
+  --icon-sm: 16px; /* Íconos dentro de botones pequeños. */
+  --icon-md: 20px; /* Íconos estándar. */
+  --font-display: Comfortaa, "Varela Round", system-ui, sans-serif;
+  --font-body: Nunito, system-ui, sans-serif;
+  --text-display-xl: 700 74px/1.12 var(--font-display); /* Titular del hero. Fluido: clamp(36px, calc(5.6vw - 2px), 74px). */
+  --text-heading-1: 700 46px/1.2 var(--font-display); /* Titular de la sección de contacto. Fluido: clamp(30px, 3.6vw, 46px). */
+  --text-heading-2: 700 40px/1.2 var(--font-display); /* Títulos de sección. Fluido: clamp(28px, 3vw, 40px). */
+  --text-heading-3: 700 28px/1.2 var(--font-display); /* Título del proyecto en el carrusel. */
+  --text-heading-4: 700 21px/1.3 var(--font-display); /* Títulos de tarjetas de servicio. */
+  --text-heading-5: 700 19px/1.35 var(--font-display); /* Títulos de la línea de tiempo. */
+  --text-stat: 700 36px/1.1 var(--font-display); /* Cifras destacadas. */
+  --text-body-lg: 400 17px/1.7 var(--font-body); /* Párrafos principales de sección. */
+  --text-body: 400 16px/1.6 var(--font-body); /* Texto base. */
+  --text-body-sm: 400 15px/1.55 var(--font-body); /* Descripciones dentro de tarjetas. */
+  --text-label: 800 15px/1.2 var(--font-body); /* Texto de botones. */
+  --text-caption: 600 14px/1.5 var(--font-body); /* Fechas, metadatos, enlaces del menú. */
+  --text-tag: 700 13px/1.2 var(--font-body); /* Etiquetas de tecnología. Mínimo absoluto de texto en la interfaz. */
+}
+.display-xl {
+  font-family: var(--font-display);
+  font-size: 74px;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.heading-1 {
+  font-family: var(--font-display);
+  font-size: 46px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.heading-2 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.heading-3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.heading-4 {
+  font-family: var(--font-display);
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.heading-5 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.stat {
+  font-family: var(--font-display);
+  font-size: 36px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.body-lg {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body-sm {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.label {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.caption {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.tag {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+@font-face {
+  font-family: "Comfortaa";
+  src: url("fonts/Comfortaa-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Comfortaa";
+  src: url("fonts/Comfortaa-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Comfortaa";
+  src: url("fonts/Comfortaa-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Comfortaa";
+  src: url("fonts/Comfortaa-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Comfortaa";
+  src: url("fonts/Comfortaa-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
