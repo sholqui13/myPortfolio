@@ -1,0 +1,31 @@
+/* ContactSection — bundle.css · gap 22 px y ancho 860 px según ContactSection/README.md */
+.g-contact {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding: var(--space-24) var(--space-6) var(--space-18);
+}
+
+.g-contact__title {
+  margin: 0;
+  font: 700 clamp(30px, 3.6vw, 46px) / 1.2 var(--font-display);
+
+  em {
+    font-style: normal;
+    color: var(--action);
+  }
+}
+
+.g-contact__alt {
+  margin: 0;
+  font: 400 15px/1.5 var(--font-body);
+  color: var(--ink-muted);
+
+  a {
+    font-weight: 800;
+  }
+}

@@ -1,0 +1,48 @@
+@use '../../../styles/breakpoints' as bp;
+
+/* SiteHeader — bundle.css · paddings y gaps de SiteHeader/README.md */
+.g-site-header {
+  display: none;
+  padding-top: var(--space-6);
+
+  @media (min-width: bp.$bp-desktop) {
+    display: block;
+  }
+}
+
+.g-site-header__nav {
+  background: var(--surface-inverse);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-5);
+}
+
+.g-site-header__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.g-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control-min);
+  padding: 0 var(--space-1);
+  border-radius: var(--space-2);
+  color: var(--ink-inverse);
+  text-decoration: none;
+  font: 600 14px/1.2 var(--font-body);
+
+  &:hover,
+  &[aria-current='page'] {
+    color: var(--attention);
+  }
+}

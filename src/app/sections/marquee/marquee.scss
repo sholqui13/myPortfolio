@@ -1,0 +1,58 @@
+/* Marquee — bundle.css · 170 px, franjas a 2° / −3°, 32 s lineal (Marquee/README.md) */
+.g-marquee {
+  position: relative;
+  display: block;
+  height: 170px;
+  overflow: hidden;
+  margin-bottom: var(--space-18);
+}
+
+.g-marquee__band {
+  position: absolute;
+  left: calc(var(--space-10) * -1);
+  right: calc(var(--space-10) * -1);
+  padding: var(--space-4) 0;
+  overflow: hidden;
+}
+
+.g-marquee__band--a {
+  top: 30px;
+  background: var(--surface-inverse);
+  transform: rotate(2deg);
+}
+
+.g-marquee__band--b {
+  top: var(--space-10);
+  background: var(--action);
+  transform: rotate(-3deg);
+}
+
+.g-marquee__track {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  font: 700 22px/1.2 var(--font-display);
+  color: var(--ink-inverse);
+  animation: g-slide 32s linear infinite;
+}
+
+.g-marquee__band--a .g-marquee__track {
+  animation-direction: reverse;
+}
+
+.g-marquee__band--a .g-marquee__sep {
+  color: var(--attention);
+}
+
+.g-marquee__band--b .g-marquee__sep {
+  color: var(--highlight);
+}
+
+@keyframes g-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

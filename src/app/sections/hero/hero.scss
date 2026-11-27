@@ -1,0 +1,217 @@
+/*
+ * Hero — bundle.css. Medidas del escenario de Hero/README.md (460 × 500 px,
+ * círculo 420, foto 440, orbes 62 / 30, botones a 22 px). La comilla y la
+ * flecha dibujada vienen del lienzo Main.
+ *
+ * El layout depende del ancho del propio hero (container query), no del
+ * viewport:
+ *  - < $hero-2col: una columna (cita arriba, foto debajo).
+ *  - ≥ $hero-2col: cita + escenario en dos columnas.
+ *  - ≥ $hero-3col: cita · escenario · hueco simétrico (diseño de escritorio).
+ * El escenario escala en proporción, así la composición se ve igual a
+ * cualquier tamaño.
+ */
+
+$stage-w: 460;
+$stage-h: 500;
+$aside-min: 220px;
+// Columna de la cita (220) + gap (--space-8, 32) + escenario mínimo que
+// aún contiene la píldora de botones (368).
+$hero-2col: 620px;
+// Cita (240) + escenario (460) + hueco (240) + 2 gaps de 32.
+$hero-3col: 1004px;
+
+/* Proporción respecto al escenario de 460 × 500. */
+@function w($px) {
+  @return calc($px / $stage-w * 100%);
+}
+
+@function h($px) {
+  @return calc($px / $stage-h * 100%);
+}
+
+.g-hero {
+  container: g-hero / inline-size;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding-top: var(--space-12);
+}
+
+.g-hero__title {
+  margin: 0;
+  font: 700 clamp(36px, calc(5.6vw - 2px), 74px) / 1.12 var(--font-display);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  max-width: 100%;
+
+  em {
+    font-style: normal;
+    color: var(--action);
+  }
+}
+
+.g-hero__row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-8);
+  text-align: left;
+
+  @container g-hero (min-width: #{$hero-2col}) {
+    flex-wrap: nowrap;
+    justify-content: center;
+    /* Sube 40 px para acercar la foto al titular (ajuste óptico documentado).
+       En una columna la cita va arriba, así que no se superpone al titular. */
+    margin-top: calc(var(--space-10) * -1);
+  }
+
+  @container g-hero (min-width: #{$hero-3col}) {
+    justify-content: space-between;
+  }
+}
+
+.g-hero__aside {
+  flex: 1 1 240px;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  position: relative;
+  z-index: 2;
+
+  @container g-hero (min-width: #{$hero-2col}) {
+    min-width: $aside-min;
+    padding-bottom: 80px;
+  }
+
+  /* Una columna: la foto va primero y debajo, en dos columnas,
+     la cita (comilla + texto) y la cifra. */
+  @container g-hero (max-width: #{$hero-2col - 1px}) {
+    order: 1;
+    max-width: none;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    column-gap: var(--space-6);
+    row-gap: var(--space-3);
+
+    > .g-stat {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: center;
+    }
+  }
+}
+
+.g-hero__mark {
+  width: 34px;
+  height: 26px;
+  fill: var(--ink);
+}
+
+.g-hero__quote {
+  margin: 0;
+  font: var(--text-body);
+  color: var(--ink-muted);
+}
+
+.g-hero__stage {
+  flex: 0 1 #{$stage-w}px;
+  width: 100%;
+  max-width: #{$stage-w}px;
+  aspect-ratio: #{$stage-w} / #{$stage-h};
+  position: relative;
+  margin: 0 auto;
+
+  @container g-hero (min-width: #{$hero-2col}) {
+    margin: 0;
+  }
+}
+
+.g-hero__circle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: w(420);
+  aspect-ratio: 1;
+  border-radius: var(--radius-round);
+  background: var(--action);
+}
+
+.g-hero__orb {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: var(--radius-round);
+}
+
+.g-hero__orb--a {
+  right: w(18);
+  top: h(120);
+  width: w(62);
+  background: var(--attention);
+}
+
+.g-hero__orb--b {
+  left: w(24);
+  top: h(170);
+  width: w(30);
+  background: var(--success);
+}
+
+.g-hero__photo {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: w(440);
+  max-width: none;
+  height: auto;
+}
+
+.g-hero__doodle {
+  position: absolute;
+  left: calc(var(--space-10) * -1);
+  bottom: 50px;
+  width: 90px;
+  height: 70px;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  display: none;
+
+  /* Solo con el hueco derecho del escritorio; en dos columnas pisaría la cita. */
+  @container g-hero (min-width: #{$hero-3col}) {
+    display: block;
+  }
+}
+
+.g-hero__ctas {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: var(--radius-pill);
+  /* Vidrio sobre el círculo: blanco al 25 % / 50 % (bundle.css). */
+  background: color-mix(in srgb, var(--white) 25%, transparent);
+  border: 1px solid color-mix(in srgb, var(--white) 50%, transparent);
+  white-space: nowrap;
+}
+
+.g-hero__spacer {
+  display: none;
+  flex: 1 1 240px;
+  max-width: 280px;
+
+  @container g-hero (min-width: #{$hero-3col}) {
+    display: block;
+  }
+}

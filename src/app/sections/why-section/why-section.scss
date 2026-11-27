@@ -1,0 +1,91 @@
+/* “¿Por qué trabajar conmigo?” — medidas del lienzo Main, colores de tokens. */
+.g-why-section {
+  padding-bottom: var(--space-24);
+}
+
+.g-why {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-10);
+  padding: clamp(28px, 4vw, 56px);
+  border-radius: var(--radius-xl);
+  background: var(--surface-raised);
+}
+
+.g-why__portrait {
+  position: relative;
+  /* 300px en el lienzo; en móviles estrechos se encoge sin desbordar. */
+  flex: 0 1 300px;
+  width: 300px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: var(--radius-round);
+  background: var(--attention);
+}
+
+.g-why__photo {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  /* 300×340 del lienzo, relativo al círculo para escalar con él. */
+  width: 100%;
+  height: calc(100% * 340 / 300);
+  object-fit: cover;
+  object-position: top;
+  border-radius: 0 0 50% 50% / 0 0 calc(100% * 150 / 340) calc(100% * 150 / 340);
+}
+
+.g-why__orb {
+  position: absolute;
+  border-radius: var(--radius-round);
+}
+
+.g-why__orb--a {
+  right: -6px;
+  top: var(--space-5);
+  width: 54px;
+  height: 54px;
+  background: var(--success);
+}
+
+.g-why__orb--b {
+  left: 6px;
+  bottom: 30px;
+  width: 26px;
+  height: 26px;
+  background: var(--highlight);
+}
+
+.g-why__body {
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.g-why__title {
+  margin: 0;
+}
+
+.g-why__text {
+  margin: 0;
+  font: var(--text-body-lg);
+  color: var(--ink-muted);
+}
+
+.g-why__stats {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.g-why__cta {
+  align-self: flex-start;
+}

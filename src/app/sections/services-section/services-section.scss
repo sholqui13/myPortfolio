@@ -1,0 +1,44 @@
+/* ServicesSection — bundle.css */
+.g-services {
+  background: var(--surface-inverse);
+  color: var(--ink-inverse);
+  border-radius: var(--radius-xl);
+  padding: clamp(28px, 4vw, 48px);
+}
+
+.g-services__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+  border-bottom: 1px solid var(--border-inverse);
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.g-services__title {
+  margin: 0;
+  font: 700 clamp(30px, 3.4vw, 44px) / 1.2 var(--font-display);
+
+  em {
+    font-style: normal;
+    color: var(--highlight);
+  }
+}
+
+.g-services__lead {
+  margin: 0;
+  max-width: 420px;
+  font: var(--text-body);
+  color: var(--ink-inverse-muted);
+}
+
+.g-services__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+  gap: var(--space-5);
+}

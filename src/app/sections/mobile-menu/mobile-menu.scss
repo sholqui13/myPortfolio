@@ -1,0 +1,169 @@
+@use '../../../styles/breakpoints' as bp;
+
+/*
+ * MobileMenu — bundle.css. Medidas de MobileMenu/README.md (barra 8/8/8/20,
+ * panel 16/20/28, enlaces 64 px, botones 52 px, orbes decorativos).
+ */
+.g-mobile-menu {
+  position: relative;
+  display: block;
+  min-height: 64px;
+
+  @media (min-width: bp.$bp-desktop) {
+    display: none;
+  }
+}
+
+.g-mobile-menu__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--surface-inverse);
+}
+
+.g-mobile-menu__panel {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow: hidden auto;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4) var(--space-5) 28px;
+  background: var(--surface-inverse);
+  color: var(--ink-inverse);
+  animation: g-mobile-menu-in 0.2s ease;
+}
+
+@keyframes g-mobile-menu-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.g-mobile-menu__top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-1);
+}
+
+.g-mobile-menu__list {
+  position: relative;
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+
+  li {
+    border-bottom: 1px solid var(--border-inverse);
+  }
+}
+
+.g-mobile-menu__link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  padding: 0 var(--space-1);
+  color: var(--ink-inverse);
+  text-decoration: none;
+  font: var(--text-heading-3);
+  border-radius: var(--space-3);
+
+  &:hover,
+  &[aria-current='page'] {
+    color: var(--attention);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--focus-ring-inverse);
+    outline-offset: 3px;
+  }
+}
+
+.g-mobile-menu__num {
+  width: 26px;
+  font: 700 13px/1 var(--font-body);
+  color: var(--ink-inverse-muted);
+}
+
+.g-mobile-menu__dot {
+  margin-left: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-round);
+  background: var(--attention);
+}
+
+.g-mobile-menu__ctas {
+  position: relative;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  .g-button {
+    min-height: var(--control-lg);
+    font-size: 16px;
+  }
+}
+
+.g-mobile-menu__foot {
+  position: relative;
+  margin-top: auto;
+  padding-top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.g-mobile-menu__status {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 600 14px/1.4 var(--font-body);
+  color: var(--ink-inverse-muted);
+}
+
+.g-mobile-menu__live {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-round);
+  background: var(--success);
+  /* rgba(46,196,182,.25) = success al 25 % (bundle.css). */
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--success) 25%, transparent);
+}
+
+.g-mobile-menu__orb {
+  position: absolute;
+  border-radius: var(--radius-round);
+}
+
+.g-mobile-menu__orb--a {
+  right: -90px;
+  bottom: -110px;
+  width: 300px;
+  height: 300px;
+  background: var(--action);
+}
+
+.g-mobile-menu__orb--b {
+  right: 150px;
+  bottom: 120px;
+  width: 26px;
+  height: 26px;
+  background: var(--success);
+}
+
+.g-mobile-menu__orb--c {
+  right: 36px;
+  bottom: 216px;
+  width: 52px;
+  height: 52px;
+  background: var(--highlight);
+}
