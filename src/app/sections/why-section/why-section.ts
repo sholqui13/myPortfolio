@@ -24,9 +24,9 @@ export interface Stat {
         <div class="g-why__portrait" aria-hidden="true">
           <img
             class="g-why__photo"
-            ngSrc="assets/img/stefania-retrato-recorte.webp"
-            width="800"
-            height="847"
+            ngSrc="assets/img/stefania-retrato.webp"
+            width="900"
+            height="900"
             alt=""
           />
           <span class="g-why__orb g-why__orb--a"></span>

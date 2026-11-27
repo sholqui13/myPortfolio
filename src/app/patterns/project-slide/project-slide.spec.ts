@@ -2,11 +2,15 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { ProjectSlide } from './project-slide';
 import { PROJECTS } from '../../data/projects';
+import { Project } from '../../data/project';
 
-function render(index: number, position?: string) {
+function render(project: number | Project, position?: string) {
   TestBed.configureTestingModule({ providers: [provideRouter([])] });
   const fixture = TestBed.createComponent(ProjectSlide);
-  fixture.componentRef.setInput('project', PROJECTS[index]);
+  fixture.componentRef.setInput(
+    'project',
+    typeof project === 'number' ? PROJECTS[project] : project,
+  );
   if (position) fixture.componentRef.setInput('position', position);
   fixture.detectChanges();
   return fixture.nativeElement as HTMLElement;
@@ -50,7 +54,7 @@ describe('ProjectSlide', () => {
   });
 
   it('sin capturas usa el esqueleto decorativo', () => {
-    const el = render(2);
+    const el = render({ ...PROJECTS[2], desk: undefined, mob: undefined });
     expect(el.querySelector('img')).toBeNull();
     expect(el.querySelector('.g-project-slide__placeholder')?.getAttribute('aria-hidden')).toBe(
       'true',

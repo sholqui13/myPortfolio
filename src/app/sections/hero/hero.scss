@@ -94,6 +94,8 @@ $hero-3col: 1004px;
   @container g-hero (max-width: #{$hero-2col - 1px}) {
     order: 1;
     max-width: none;
+    /* Aire antes de la sección de servicios, que en móvil viene justo debajo. */
+    padding-bottom: var(--space-12);
     display: grid;
     grid-template-columns: 3fr 2fr;
     column-gap: var(--space-6);
@@ -168,7 +170,9 @@ $hero-3col: 1004px;
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
-  width: w(440);
+  /* Retrato cuadrado (900 × 900) a todo el ancho del escenario: la cabeza
+     sobresale del círculo y los hombros caben dentro de su diámetro. */
+  width: w(460);
   max-width: none;
   height: auto;
 }

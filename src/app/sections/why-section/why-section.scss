@@ -35,6 +35,7 @@
   height: calc(100% * 340 / 300);
   object-fit: cover;
   object-position: top;
+  /* Solo se redondea la base: la cabeza sobresale por encima del círculo. */
   border-radius: 0 0 50% 50% / 0 0 calc(100% * 150 / 340) calc(100% * 150 / 340);
 }
 
