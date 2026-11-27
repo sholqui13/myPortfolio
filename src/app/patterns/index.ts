@@ -6,3 +6,4 @@ export * from './contact-form/contact-form';
 export * from './contact-form/contact.service';
 export * from './social-links/social-links';
 export * from './check-list/check-list';
+export * from './email-card/email-card';
