@@ -35,7 +35,13 @@
   height: calc(100% * 340 / 300);
   object-fit: cover;
   object-position: top;
-  border-radius: 0 0 50% 50% / 0 0 calc(100% * 150 / 340) calc(100% * 150 / 340);
+  /* Recorte con el círculo completo (radio 150, centro a 190 de 340): la
+     foto original llega cortada en la coronilla y así no se ve el borde recto. */
+  mask-image: radial-gradient(
+    ellipse 50% calc(100% * 150 / 340) at 50% calc(100% * 190 / 340),
+    #000 99.5%,
+    transparent 100%
+  );
 }
 
 .g-why__orb {
