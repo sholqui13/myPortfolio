@@ -1,0 +1,18 @@
+/* Tag — bundle.css · alto 28 px según Tag/README.md */
+.g-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-pill);
+  font: var(--text-tag);
+  background: var(--surface-raised);
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.g-tag--inverse {
+  background: transparent;
+  color: var(--ink-inverse);
+  border-color: var(--border-inverse);
+}

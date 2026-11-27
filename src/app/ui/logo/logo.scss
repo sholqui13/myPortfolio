@@ -1,0 +1,20 @@
+/* Logo — bundle.css · alturas sm 34 / md 42 / lg 52 según Logo/README.md */
+.g-logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control-min);
+}
+
+.g-logo__img {
+  display: block;
+  width: auto;
+  height: 42px;
+}
+
+.g-logo--sm .g-logo__img {
+  height: 34px;
+}
+
+.g-logo--lg .g-logo__img {
+  height: 52px;
+}

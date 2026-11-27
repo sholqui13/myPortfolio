@@ -1,0 +1,45 @@
+/* IconButton — bundle.css */
+.g-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--control-md);
+  height: var(--control-md);
+  padding: 0;
+  border-radius: var(--radius-round);
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.g-icon-button--lg {
+  width: var(--control-lg);
+  height: var(--control-lg);
+}
+
+.g-icon-button--inverse {
+  background: var(--surface-inverse);
+  color: var(--ink-inverse);
+}
+
+.g-icon-button--inverse-raised {
+  background: var(--surface-inverse-raised);
+  color: var(--ink-inverse);
+}
+
+.g-icon-button--highlight {
+  background: var(--highlight);
+  color: var(--on-highlight);
+}
+
+.g-icon-button--attention {
+  background: var(--attention);
+  color: var(--on-attention);
+}
+
+.g-icon-button--outline {
+  background: var(--surface-raised);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+}

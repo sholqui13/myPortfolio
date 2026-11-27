@@ -1,0 +1,85 @@
+/* Button — bundle.css */
+.g-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--control-md);
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  font: var(--text-label);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .g-icon {
+    transition: transform 0.2s ease;
+  }
+
+  &:hover .g-icon--trail {
+    transform: translate(2px, -2px);
+  }
+}
+
+.g-button--primary {
+  background: var(--action);
+  color: var(--on-action);
+
+  &:hover:not(:disabled) {
+    background: var(--action-hover);
+  }
+}
+
+.g-button--highlight {
+  background: var(--highlight);
+  color: var(--on-highlight);
+}
+
+.g-button--secondary {
+  background: var(--surface-raised);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.g-button--outline-action {
+  background: transparent;
+  color: var(--action);
+  border-color: var(--action);
+}
+
+.g-button--light {
+  background: var(--surface-raised);
+  color: var(--ink);
+}
+
+.g-button--attention {
+  background: var(--attention);
+  color: var(--on-attention);
+}
+
+.g-button--ghost-inverse {
+  background: transparent;
+  color: var(--ink-inverse);
+  border-color: var(--ink-inverse);
+}
+
+.g-button--sm {
+  min-height: var(--control-min);
+  font-size: 14px;
+}
