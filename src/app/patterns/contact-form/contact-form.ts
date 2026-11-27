@@ -31,8 +31,8 @@ function requiredTrimmed(control: AbstractControl<string>): ValidationErrors | n
 }
 
 /**
- * ContactForm — molécula. Nombre, mensaje y correo; el correo va en la píldora
- * con el botón de envío. Validación por campo (error en aria-describedby y foco
+ * ContactForm — molécula. Nombre, correo y mensaje, y debajo el botón de envío.
+ * Validación por campo (error en aria-describedby y foco
  * al primer campo inválido), honeypot anti-spam y estados:
  * enviando (botón deshabilitado) · éxito (role="status") · error (reintentar).
  */
@@ -63,6 +63,24 @@ function requiredTrimmed(control: AbstractControl<string>): ValidationErrors | n
       </div>
 
       <div class="g-contact-form__group">
+        <label class="g-text-field__label" [for]="ids().email">{{ emailLabel() }}</label>
+        <input
+          class="g-text-field__input g-contact-form__box"
+          [id]="ids().email"
+          type="email"
+          name="email"
+          autocomplete="email"
+          placeholder="nombre@correo.com"
+          formControlName="email"
+          [attr.aria-invalid]="error('email') ? 'true' : null"
+          [attr.aria-describedby]="error('email') ? ids().email + '-error' : null"
+        />
+        @if (error('email'); as text) {
+          <p class="g-contact-form__error" [id]="ids().email + '-error'">{{ text }}</p>
+        }
+      </div>
+
+      <div class="g-contact-form__group">
         <label class="g-text-field__label" [for]="ids().message">Tu mensaje</label>
         <textarea
           class="g-text-field__input g-contact-form__box g-contact-form__box--area"
@@ -79,38 +97,25 @@ function requiredTrimmed(control: AbstractControl<string>): ValidationErrors | n
         }
       </div>
 
-      <div class="g-contact-form__group">
-        <label class="g-text-field__label" [for]="ids().email">{{ emailLabel() }}</label>
-        <div class="g-contact-form__row">
-          <input
-            class="g-text-field__input"
-            [id]="ids().email"
-            type="email"
-            name="email"
-            autocomplete="email"
-            placeholder="nombre@correo.com"
-            formControlName="email"
-            [attr.aria-invalid]="error('email') ? 'true' : null"
-            [attr.aria-describedby]="error('email') ? ids().email + '-error' : null"
-          />
-          <!-- Honeypot: invisible para personas; si se llena, no se envía nada. -->
-          <input
-            class="g-contact-form__trap"
-            type="text"
-            name="_gotcha"
-            formControlName="trap"
-            tabindex="-1"
-            autocomplete="off"
-            aria-hidden="true"
-          />
-          <button g-button type="submit" [disabled]="status() === 'sending'">
-            {{ buttonText() }}
-          </button>
-        </div>
-        @if (error('email'); as text) {
-          <p class="g-contact-form__error" [id]="ids().email + '-error'">{{ text }}</p>
-        }
-      </div>
+      <!-- Honeypot: invisible para personas; si se llena, no se envía nada. -->
+      <input
+        class="g-contact-form__trap"
+        type="text"
+        name="_gotcha"
+        formControlName="trap"
+        tabindex="-1"
+        autocomplete="off"
+        aria-hidden="true"
+      />
+
+      <button
+        g-button
+        class="g-contact-form__submit"
+        type="submit"
+        [disabled]="status() === 'sending'"
+      >
+        {{ buttonText() }}
+      </button>
 
       <p
         class="g-contact-form__status"
@@ -234,7 +239,7 @@ export class ContactForm {
   }
 
   private focusFirstInvalid(): void {
-    const order: Field[] = ['name', 'message', 'email'];
+    const order: Field[] = ['name', 'email', 'message'];
     const first = order.find((f) => this.form.controls[f].invalid);
     if (!first) return;
     this.host.nativeElement.querySelector<HTMLElement>(`#${this.ids()[first]}`)?.focus();

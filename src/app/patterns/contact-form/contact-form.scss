@@ -6,14 +6,12 @@ g-contact-form {
 }
 
 /*
- * ContactForm — nombre y mensaje en cajas con el mismo borde de la píldora;
- * el correo y el botón comparten la píldora (padding 6 / 6 / 6 / space-5, auto-layout.md).
- * Estrecho (README): el botón baja a una segunda línea a todo el ancho. Con dos
- * líneas la píldora de 999 px se deforma, así que pasa a --radius-lg (tarjetas).
+ * ContactForm — nombre, mensaje y correo en cajas con borde de 2 px (píldora;
+ * el mensaje con --radius-lg). El botón de envío va aparte, debajo de los campos.
  */
 
-// Campo (200) + gap (8) + botón "Enviar" (88) + padding (26 + 6) y borde (4) de la píldora = 332.
-$capture-row: 340px;
+// Por debajo de este ancho de contenedor el botón ocupa todo el ancho.
+$narrow: 340px;
 
 .g-contact-form {
   container: g-contact-form / inline-size;
@@ -56,45 +54,13 @@ $capture-row: 340px;
   resize: vertical;
 }
 
-.g-contact-form__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  background: var(--surface-raised);
-  border: 2px solid var(--ink);
-  border-radius: var(--radius-pill);
-  padding: 6px 6px 6px var(--space-5);
+/* Botón de envío fuera de los campos: alineado a la derecha; en estrecho, a todo el ancho. */
+.g-contact-form__submit {
+  align-self: flex-end;
 
-  .g-text-field__input {
-    flex: 1 1 200px;
-    min-width: 0;
-  }
-
-  @container g-contact-form (max-width: #{$capture-row - 1px}) {
-    flex-direction: column;
-    border-radius: var(--radius-lg);
-    padding: 6px;
-
-    /* El texto conserva la sangría de space-5 respecto al borde. */
-    .g-text-field__input {
-      flex: none;
-      padding-inline: calc(var(--space-5) - 6px);
-    }
-
-    .g-button {
-      width: 100%;
-      justify-content: center;
-    }
-  }
-
-  /* El foco se marca en la píldora completa. */
-  &:focus-within {
-    outline: 3px solid var(--focus-ring);
-    outline-offset: 3px;
-  }
-
-  .g-text-field__input:focus-visible {
-    outline: none;
+  @container g-contact-form (max-width: #{$narrow - 1px}) {
+    align-self: stretch;
+    justify-content: center;
   }
 }
 

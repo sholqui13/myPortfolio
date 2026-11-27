@@ -68,7 +68,7 @@ describe('ContactForm', () => {
     expect(name.getAttribute('aria-invalid')).toBeNull();
     expect(el.querySelector('#g-contact-mensaje-error')?.textContent).toContain('muy corto');
     expect(el.querySelector('#g-contact-correo-error')?.textContent).toContain('formato');
-    expect(document.activeElement).toBe(message);
+    expect(document.activeElement).toBe(email);
     expect(spy).not.toHaveBeenCalled();
   });
 
