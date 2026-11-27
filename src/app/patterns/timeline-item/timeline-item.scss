@@ -1,0 +1,102 @@
+/*
+ * TimelineItem — bundle.css.
+ * Ancho: meta · riel · cuerpo en una fila (README: flex-wrap, gap space-8).
+ * Estrecho: README pide apilar con la meta arriba; para que el riel siga
+ * continuo, va a la izquierda y meta + cuerpo se apilan a su derecha.
+ * El corte depende del ancho de la lista (container query en .g-timeline).
+ */
+
+// Meta (260) + riel (24) + cuerpo (320) + 2 gaps de 32: la fila completa.
+$timeline-row: 668px;
+
+/* La lista que contiene los ítems (ol.g-timeline u otra) mide el ancho. */
+:where(ol, ul):has(> .g-timeline-item) {
+  container: g-timeline / inline-size;
+}
+
+.g-timeline-item {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-8);
+
+  @container g-timeline (max-width: #{$timeline-row - 1px}) {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    column-gap: var(--space-4);
+  }
+}
+
+.g-timeline-item__meta,
+.g-timeline-item__body {
+  padding: var(--space-1) 0 var(--space-8);
+  display: flex;
+  flex-direction: column;
+}
+
+.g-timeline-item__meta {
+  flex: 1 1 260px;
+  gap: var(--space-1);
+
+  @container g-timeline (max-width: #{$timeline-row - 1px}) {
+    grid-column: 2;
+    grid-row: 1;
+    padding-bottom: var(--space-3);
+  }
+}
+
+.g-timeline-item__body {
+  flex: 1 1 320px;
+  gap: 6px;
+
+  @container g-timeline (max-width: #{$timeline-row - 1px}) {
+    grid-column: 2;
+    grid-row: 2;
+    padding-top: 0;
+  }
+}
+
+.g-timeline-item__rail {
+  flex: 0 0 24px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  @container g-timeline (max-width: #{$timeline-row - 1px}) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-items: flex-start;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-left: 2px dashed var(--slate-300);
+  }
+}
+
+.g-timeline-item__dot {
+  position: relative;
+  margin-top: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-round);
+  box-shadow: 0 0 0 5px var(--surface);
+}
+
+.g-timeline-item__org,
+.g-timeline-item__role {
+  font: var(--text-heading-5);
+  color: var(--ink);
+}
+
+.g-timeline-item__date {
+  font: var(--text-caption);
+  color: var(--ink-muted);
+}
+
+.g-timeline-item__desc {
+  font: 400 15px/1.6 var(--font-body);
+  color: var(--ink-muted);
+}

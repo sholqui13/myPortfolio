@@ -1,0 +1,26 @@
+g-check-list {
+  display: block;
+}
+
+/* CheckList — bundle.css · gap 12 × 28 según CheckList/README.md */
+.g-check-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3) 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font: 600 15px/1.4 var(--font-body);
+  color: var(--ink-muted);
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .g-icon {
+    color: var(--success);
+  }
+}

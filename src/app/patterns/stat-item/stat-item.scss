@@ -1,0 +1,17 @@
+/* StatItem — bundle.css */
+.g-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.g-stat__value {
+  font: var(--text-stat);
+  color: var(--ink);
+}
+
+.g-stat__label {
+  font: 400 14px/1.4 var(--font-body);
+  color: var(--ink-muted);
+  max-width: 200px;
+}

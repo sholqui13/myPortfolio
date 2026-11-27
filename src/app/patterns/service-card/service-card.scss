@@ -1,0 +1,61 @@
+/*
+ * ServiceCard — bundle.css.
+ * Padding 22, gap 18, media 200 px / radio 18 y el -54 px del botón
+ * vienen de ServiceCard/README.md y auto-layout.md (ajuste óptico documentado).
+ */
+.g-service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-inverse-raised);
+  color: var(--ink-inverse);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+}
+
+.g-service-card--featured {
+  background: var(--action);
+}
+
+.g-service-card__title {
+  margin: 0;
+  font: var(--text-heading-4);
+}
+
+.g-service-card__text {
+  margin: 0;
+  font: var(--text-body-sm);
+  color: var(--ink-inverse-muted);
+
+  .g-service-card--featured & {
+    color: var(--ink-inverse);
+  }
+}
+
+.g-service-card__media {
+  position: relative;
+  height: 200px;
+  border-radius: 18px;
+  background: var(--surface);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.g-service-card__action {
+  align-self: flex-end;
+  margin: -54px 10px 0 0;
+  position: relative;
+}

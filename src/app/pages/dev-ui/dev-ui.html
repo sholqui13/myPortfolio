@@ -1,0 +1,393 @@
+<a class="g-skip" href="/dev/ui#contenido">Saltar al contenido</a>
+
+<header class="g-dev__header g-on-dark">
+  <div class="g-container g-dev__header-inner">
+    <g-logo size="sm" href="/" alt="Genuina Multimedia, inicio" priority />
+    <p class="g-dev__kicker">Genuina UI · /dev/ui</p>
+  </div>
+</header>
+
+<main id="contenido" class="g-container g-dev">
+  <h1 class="heading-2">Tokens, átomos y moléculas</h1>
+  <nav class="g-dev__toc" aria-label="Secciones de la página">
+    <a class="g-link" href="/dev/ui#t-color">Tokens</a>
+    <a class="g-link" href="/dev/ui#a-icon">Átomos</a>
+    <a class="g-link" href="/dev/ui#moleculas">Moléculas</a>
+    <a class="g-link" href="/dev/organismos">Organismos →</a>
+  </nav>
+  <p class="body-lg g-dev__lead">
+    Página interna para revisar el design system implementado en Angular. Todo lo que ves sale de
+    <code>tokens.css</code> y de los estilos BEM <code>g-*</code> de cada componente.
+  </p>
+
+  <!-- ============ TOKENS ============ -->
+  <section class="g-dev__section" aria-labelledby="t-color">
+    <h2 id="t-color" class="heading-3">Color</h2>
+
+    <h3 class="heading-5">Primitivos</h3>
+    <ul class="g-dev__swatches">
+      @for (t of primitives; track t) {
+        <li class="g-dev__swatch">
+          <span class="g-dev__chip" [style.background]="'var(--' + t + ')'"></span>
+          <code>--{{ t }}</code>
+          <span class="g-dev__value">{{ resolved()[t] }}</span>
+        </li>
+      }
+    </ul>
+
+    <h3 class="heading-5">Semánticos</h3>
+    <ul class="g-dev__swatches">
+      @for (t of semantic; track t) {
+        <li class="g-dev__swatch">
+          <span class="g-dev__chip" [style.background]="'var(--' + t + ')'"></span>
+          <code>--{{ t }}</code>
+          <span class="g-dev__value">{{ resolved()[t] }}</span>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="t-type">
+    <h2 id="t-type" class="heading-3">Tipografía</h2>
+    <ul class="g-dev__stack">
+      @for (s of typeStyles; track s) {
+        <li class="g-dev__type-row">
+          <code>.{{ s }}</code>
+          <span [class]="s">Convierto diseños en interfaces</span>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="t-space">
+    <h2 id="t-space" class="heading-3">Espaciado</h2>
+    <ul class="g-dev__stack">
+      @for (n of spaces; track n) {
+        <li class="g-dev__space-row">
+          <code>--space-{{ n }}</code>
+          <span class="g-dev__bar" [style.width]="'var(--space-' + n + ')'"></span>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="t-shape">
+    <h2 id="t-shape" class="heading-3">Radios y sombras</h2>
+    <ul class="g-dev__row">
+      @for (r of radii; track r) {
+        <li class="g-dev__shape-item">
+          <span class="g-dev__shape" [style.border-radius]="'var(--radius-' + r + ')'"></span>
+          <code>--radius-{{ r }}</code>
+        </li>
+      }
+    </ul>
+    <ul class="g-dev__row">
+      @for (s of shadows; track s) {
+        <li class="g-dev__shape-item">
+          <span
+            class="g-dev__shape g-dev__shape--raised"
+            [style.box-shadow]="'var(--shadow-' + s + ')'"
+          ></span>
+          <code>--shadow-{{ s }}</code>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <!-- ============ ÁTOMOS ============ -->
+  <section class="g-dev__section" aria-labelledby="a-icon">
+    <h2 id="a-icon" class="heading-3">Icon</h2>
+    <p class="g-dev__note">
+      <code>&lt;g-icon name size label&gt;</code> · md 20 px · sm 16 px · currentColor
+    </p>
+    <ul class="g-dev__row">
+      @for (n of icons; track n) {
+        <li class="g-dev__icon-item">
+          <g-icon [name]="n" [label]="n" />
+          <code>{{ n }}</code>
+        </li>
+      }
+    </ul>
+    <div class="g-dev__row">
+      <g-icon name="check" size="sm" label="check sm" />
+      <g-icon name="check" label="check md" />
+    </div>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="a-button">
+    <h2 id="a-button" class="heading-3">Button</h2>
+    <p class="g-dev__note">
+      <code>a[g-button]</code>, <code>button[g-button]</code> · variant · size · icon · trailingIcon
+      · newTab
+    </p>
+
+    <div class="g-dev__row">
+      @for (v of buttonVariants; track v) {
+        <button g-button [variant]="v">{{ v }}</button>
+      }
+    </div>
+    <div class="g-dev__row">
+      <a g-button href="/dev/ui#a-button" trailingIcon="arrow-up-right">
+        Ver caso de estudio<span class="g-sr">: Novasec</span>
+      </a>
+      <a g-button variant="highlight" href="/dev/ui#a-button" trailingIcon="arrow-up-right"
+        >Portafolio</a
+      >
+      <a g-button variant="secondary" icon="github" href="https://github.com/sholqui13" newTab
+        >Ver código en GitHub</a
+      >
+      <button g-button variant="outline-action">Contrátame</button>
+      <button g-button variant="light" size="sm">Contacto</button>
+      <button g-button disabled>Enviando…</button>
+    </div>
+    <div class="g-dev__row g-dev__panel g-on-dark">
+      <button g-button variant="light">Light</button>
+      <button g-button variant="attention" icon="download">Ver mi CV</button>
+      <button g-button variant="ghost-inverse">Escríbeme</button>
+      <button g-button variant="highlight" trailingIcon="arrow-up-right">Portafolio</button>
+    </div>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="a-icon-button">
+    <h2 id="a-icon-button" class="heading-3">IconButton</h2>
+    <p class="g-dev__note">
+      <code>a[g-icon-button]</code>, <code>button[g-icon-button]</code> · icon · label (obligatorio)
+      · variant · size md 48 / lg 52
+    </p>
+    <div class="g-dev__row">
+      @for (v of iconButtonVariants; track v) {
+        <button
+          g-icon-button
+          icon="arrow-up-right"
+          [variant]="v"
+          [label]="'Variante ' + v"
+        ></button>
+      }
+    </div>
+    <div class="g-dev__row">
+      <button
+        g-icon-button
+        icon="arrow-left"
+        variant="outline"
+        size="lg"
+        label="Proyecto anterior"
+      ></button>
+      <button
+        g-icon-button
+        icon="arrow-right"
+        variant="highlight"
+        size="lg"
+        label="Proyecto siguiente"
+      ></button>
+      <a
+        g-icon-button
+        icon="download"
+        variant="attention"
+        label="Descargar CV"
+        href="https://drive.google.com/file/d/1pW3FoSlaeKWjdN4-A1NHz7Mi6jTaf9w7/view?usp=sharing"
+        newTab
+      ></a>
+    </div>
+    <div class="g-dev__row g-dev__panel g-on-dark">
+      <a
+        g-icon-button
+        icon="linkedin"
+        variant="inverse-raised"
+        label="LinkedIn de Stefania Holguin"
+        href="https://www.linkedin.com/in/stefania-holguin-quiroz-133724ab"
+        newTab
+      ></a>
+      <a
+        g-icon-button
+        icon="github"
+        variant="inverse-raised"
+        label="GitHub de Stefania Holguin"
+        href="https://github.com/sholqui13"
+        newTab
+      ></a>
+      <a
+        g-icon-button
+        icon="mail"
+        variant="inverse-raised"
+        label="Enviar correo"
+        href="mailto:sholguinquiroz1@gmail.com"
+      ></a>
+      <button g-icon-button icon="menu" variant="attention" label="Abrir menú"></button>
+    </div>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="a-tag">
+    <h2 id="a-tag" class="heading-3">Tag</h2>
+    <p class="g-dev__note"><code>li[g-tag]</code> dentro de <code>&lt;ul&gt;</code> · inverse</p>
+    <ul class="g-dev__tags">
+      <li g-tag>Angular</li>
+      <li g-tag>TypeScript</li>
+      <li g-tag>WCAG</li>
+      <li g-tag>Figma</li>
+    </ul>
+    <div class="g-dev__panel g-on-dark">
+      <ul class="g-dev__tags">
+        <li g-tag inverse>Angular</li>
+        <li g-tag inverse>Design System</li>
+        <li g-tag inverse>Accesibilidad</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="a-bubble">
+    <h2 id="a-bubble" class="heading-3">Bubble</h2>
+    <p class="g-dev__note">
+      <code>&lt;g-bubble&gt;</code> · contenido proyectado (por defecto “¡Hola!”)
+    </p>
+    <div class="g-dev__row g-dev__row--airy">
+      <g-bubble>¡Hola!</g-bubble>
+      <g-bubble />
+    </div>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="a-logo">
+    <h2 id="a-logo" class="heading-3">Logo</h2>
+    <p class="g-dev__note"><code>&lt;g-logo on size href alt&gt;</code> · sm 34 · md 42 · lg 52</p>
+    <div class="g-dev__row g-dev__row--logos g-dev__panel g-on-dark">
+      <g-logo size="sm" />
+      <g-logo />
+      <g-logo size="lg" />
+    </div>
+    <div class="g-dev__row g-dev__row--logos g-dev__panel g-dev__panel--raised">
+      <g-logo on="light" size="sm" />
+      <g-logo on="light" />
+      <g-logo on="light" size="lg" href="/" alt="Genuina Multimedia, inicio" />
+    </div>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="a-text-field">
+    <h2 id="a-text-field" class="heading-3">TextField</h2>
+    <p class="g-dev__note">
+      <code>&lt;g-text-field label type autocomplete&gt;</code> + ControlValueAccessor
+    </p>
+    <div class="g-dev__field-demo">
+      <g-text-field label="Tu nombre" placeholder="Escribe tu nombre" autocomplete="name" />
+      <g-text-field
+        label="Tu correo"
+        type="email"
+        placeholder="nombre@correo.com"
+        autocomplete="email"
+        [formControl]="email"
+      />
+      <p class="g-dev__note" aria-live="polite">Valor del FormControl: “{{ email.value }}”</p>
+    </div>
+  </section>
+
+  <!-- ============ MOLÉCULAS ============ -->
+  <h2 id="moleculas" class="heading-2 g-dev__level">Moléculas</h2>
+
+  <section class="g-dev__section" aria-labelledby="m-stat">
+    <h2 id="m-stat" class="heading-3">StatItem</h2>
+    <p class="g-dev__note">
+      <code>&lt;g-stat-item value label&gt;</code> · también <code>li[g-stat-item]</code>
+    </p>
+    <ul class="g-dev__row g-dev__row--stats">
+      <li g-stat-item value="2 en 1" label="diseño UX/UI y desarrollo Front-End"></li>
+      <li g-stat-item value="4" label="navegadores probados en cada entrega"></li>
+      <li g-stat-item value="B1" label="inglés (EF SET)"></li>
+    </ul>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="m-service">
+    <h2 id="m-service" class="heading-3">ServiceCard</h2>
+    <p class="g-dev__note">
+      <code>li[g-service-card]</code> · title · text · href · actionLabel · featured · ilustración
+      con <code>[media]</code> (las ilustraciones llegan con ServicesSection)
+    </p>
+    <div class="g-dev__panel g-on-dark">
+      <ul class="g-dev__grid">
+        <li
+          g-service-card
+          title="Desarrollo Front-End"
+          text="Angular, TypeScript y SASS con BEM. Responsive y Mobile-First."
+          href="/dev/ui#m-service"
+          actionLabel="Ver proyectos de desarrollo Front-End"
+        ></li>
+        <li
+          g-service-card
+          featured
+          title="Diseño UX/UI"
+          text="Prototipos en Figma y Adobe XD listos para llevar a código."
+          href="/dev/ui#m-service"
+          actionLabel="Ver proyectos de diseño UX/UI"
+        ></li>
+        <li
+          g-service-card
+          title="Accesibilidad y performance"
+          text="Buenas prácticas WCAG, carga rápida y pruebas cross-browser."
+          href="/dev/ui#m-service"
+          actionLabel="Ver proyectos con foco en accesibilidad"
+        ></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="m-timeline">
+    <h2 id="m-timeline" class="heading-3">TimelineItem</h2>
+    <p class="g-dev__note">
+      <code>li[g-timeline-item]</code> dentro de <code>&lt;ol&gt;</code> · org · date · role · desc
+      · index (color del punto)
+    </p>
+    <ol class="g-dev__timeline">
+      @for (t of timeline; track $index) {
+        <li
+          g-timeline-item
+          [org]="t.org"
+          [date]="t.date"
+          [role]="t.role"
+          [desc]="t.desc"
+          [index]="$index"
+        ></li>
+      }
+    </ol>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="m-slide">
+    <h2 id="m-slide" class="heading-3">ProjectSlide</h2>
+    <p class="g-dev__note">
+      <code>&lt;g-project-slide [project] position&gt;</code> · con capturas y sin capturas
+      (Avianca)
+    </p>
+    @for (p of projects; track p.slug) {
+      <g-project-slide
+        [project]="p"
+        [position]="'Proyecto ' + ($index + 1) + ' de ' + projects.length"
+      />
+    }
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="m-email">
+    <h2 id="m-email" class="heading-3">EmailCapture</h2>
+    <p class="g-dev__note">
+      <code>&lt;g-email-capture (submitted)&gt;</code> · Reactive Forms · honeypot · estados
+      enviando / éxito / error. Aquí el envío es simulado.
+    </p>
+    <g-email-capture fieldId="dev-email" (submitted)="lastSubmitted.set($event)" />
+    @if (lastSubmitted()) {
+      <p class="g-dev__note">Output <code>submitted</code>: {{ lastSubmitted() }}</p>
+    }
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="m-social">
+    <h2 id="m-social" class="heading-3">SocialLinks</h2>
+    <p class="g-dev__note">
+      <code>&lt;g-social-links [items]&gt;</code> · por defecto LinkedIn, GitHub, correo y CV
+    </p>
+    <div class="g-dev__panel g-on-dark">
+      <g-social-links />
+    </div>
+  </section>
+
+  <section class="g-dev__section" aria-labelledby="m-check">
+    <h2 id="m-check" class="heading-3">CheckList</h2>
+    <p class="g-dev__note"><code>&lt;g-check-list [items]&gt;</code></p>
+    <g-check-list
+      [items]="['Remoto o en Medellín', 'Freelance o tiempo completo', 'Español e inglés']"
+    />
+  </section>
+</main>
