@@ -362,12 +362,12 @@
   </section>
 
   <section class="g-dev__section" aria-labelledby="m-email">
-    <h2 id="m-email" class="heading-3">EmailCapture</h2>
+    <h2 id="m-email" class="heading-3">ContactForm</h2>
     <p class="g-dev__note">
-      <code>&lt;g-email-capture (submitted)&gt;</code> · Reactive Forms · honeypot · estados
+      <code>&lt;g-contact-form (submitted)&gt;</code> · nombre, mensaje y correo · Reactive Forms · honeypot · estados
       enviando / éxito / error. Aquí el envío es simulado.
     </p>
-    <g-email-capture fieldId="dev-email" (submitted)="lastSubmitted.set($event)" />
+    <g-contact-form idPrefix="dev-contact" (submitted)="lastSubmitted.set($event.name + ' · ' + $event.email)" />
     @if (lastSubmitted()) {
       <p class="g-dev__note">Output <code>submitted</code>: {{ lastSubmitted() }}</p>
     }

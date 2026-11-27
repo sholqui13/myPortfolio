@@ -1,12 +1,13 @@
 /* Host: ocupa el ancho disponible hasta 560 px. */
-g-email-capture {
+g-contact-form {
   display: block;
   width: 100%;
   max-width: 560px;
 }
 
 /*
- * EmailCapture — bundle.css · padding de la píldora 6 / 6 / 6 / space-5 (auto-layout.md).
+ * ContactForm — nombre y mensaje en cajas con el mismo borde de la píldora;
+ * el correo y el botón comparten la píldora (padding 6 / 6 / 6 / space-5, auto-layout.md).
  * Estrecho (README): el botón baja a una segunda línea a todo el ancho. Con dos
  * líneas la píldora de 999 px se deforma, así que pasa a --radius-lg (tarjetas).
  */
@@ -14,18 +15,48 @@ g-email-capture {
 // Campo (200) + gap (8) + botón "Enviar" (88) + padding (26 + 6) y borde (4) de la píldora = 332.
 $capture-row: 340px;
 
-.g-email-capture {
-  container: g-email-capture / inline-size;
+.g-contact-form {
+  container: g-contact-form / inline-size;
   width: 100%;
   max-width: 560px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-4);
   margin: 0;
   text-align: left;
 }
 
-.g-email-capture__row {
+.g-contact-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Campos sueltos (nombre y mensaje): mismo borde y fondo que la píldora del correo. */
+.g-contact-form__box {
+  width: 100%;
+  box-sizing: border-box;
+  /* Misma altura que la píldora: control (control-md) + padding (2 × 6) + borde (2 × 2). */
+  min-height: calc(var(--control-md) + 16px);
+  background: var(--surface-raised);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-pill);
+  padding: 6px var(--space-5);
+
+  &:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+}
+
+.g-contact-form__box--area {
+  min-height: 140px;
+  border-radius: var(--radius-lg);
+  padding-block: var(--space-3);
+  resize: vertical;
+}
+
+.g-contact-form__row {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
@@ -39,7 +70,7 @@ $capture-row: 340px;
     min-width: 0;
   }
 
-  @container g-email-capture (max-width: #{$capture-row - 1px}) {
+  @container g-contact-form (max-width: #{$capture-row - 1px}) {
     flex-direction: column;
     border-radius: var(--radius-lg);
     padding: 6px;
@@ -67,7 +98,7 @@ $capture-row: 340px;
   }
 }
 
-.g-email-capture__trap {
+.g-contact-form__trap {
   position: absolute;
   left: -9999px;
   width: 1px;
@@ -75,22 +106,22 @@ $capture-row: 340px;
   opacity: 0;
 }
 
-.g-email-capture__error,
-.g-email-capture__status {
+.g-contact-form__error,
+.g-contact-form__status {
   margin: 0;
   padding-left: var(--space-5);
   font: 700 14px/1.5 var(--font-body);
 }
 
-.g-email-capture__error {
+.g-contact-form__error {
   color: var(--ink);
 }
 
-.g-email-capture__status {
+.g-contact-form__status {
   min-height: 22px;
   color: var(--success-text);
 }
 
-.g-email-capture__status--error {
+.g-contact-form__status--error {
   color: var(--ink);
 }
