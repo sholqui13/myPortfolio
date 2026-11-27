@@ -1,0 +1,312 @@
+<g-case-shell
+  slug="veyra"
+  [back]="{ label: 'Anterior: Novasec', route: '/proyectos/novasec' }"
+  [forward]="{ label: 'Siguiente: Avianca', route: '/proyectos/avianca' }"
+  [next]="{ slug: 'avianca', title: 'Avianca: reservas y LifeMiles' }"
+  note="Veyra es un proyecto de diseño; los vehículos y lecturas son datos de ejemplo."
+>
+  <!-- HERO -->
+  <section class="g-case-hero g-case-hero--flush g-case-on-dark" aria-labelledby="caso-title">
+    <div class="g-container g-case-hero__inner">
+      <div class="g-case-hero__top">
+        <nav aria-label="Ruta de navegación">
+          <ol class="g-case-crumbs">
+            <li><a routerLink="/" fragment="portafolio">Portafolio</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">Veyra</li>
+          </ol>
+        </nav>
+        <p class="g-case-meta">ENTREGA DE DISEÑO · v1.0 · AGO 2026</p>
+      </div>
+      <p class="g-case-brand">
+        <span class="g-case-brand__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" focusable="false">
+            <path d="M12 3 20 20 12 15.5 4 20Z" />
+          </svg>
+        </span>
+        veyra
+      </p>
+      <h1 class="g-case-hero__title" id="caso-title">
+        Monitor de vehículos en <em>tiempo real</em>.
+      </h1>
+      <p class="g-case-hero__lead">
+        Una central de operaciones de flota diseñada de punta a punta: marca, sistema de tokens,
+        componentes, flujo, interfaz en modo claro y oscuro, estados críticos y criterios de
+        accesibilidad WCAG 2.1 AA.
+      </p>
+      <ul class="g-case-chips g-case-chips--on-dark" aria-label="Alcance">
+        <li>API Traccar · REST + polling</li>
+        <li>Angular · SASS · Leaflet</li>
+        <li>Tema claro / oscuro</li>
+        <li>WCAG 2.1 AA</li>
+        <li class="g-case-chips__accent">Escritorio · tablet · móvil</li>
+      </ul>
+      <div class="g-case-actions">
+        <a
+          class="g-case-btn g-case-btn--primary"
+          href="https://www.figma.com/design/sRY4pHnKhkubZszHrDUPd3/Veyra-App"
+          target="_blank"
+          rel="noopener"
+        >
+          <g-icon name="figma" size="sm" />Ver diseño en Figma<span class="g-sr">
+            (abre en una pestaña nueva)</span
+          >
+        </a>
+      </div>
+      <dl class="g-case-facts">
+        <div>
+          <dt>Mi rol</dt>
+          <dd>Diseño UX/UI y sistema de diseño</dd>
+        </div>
+        <div>
+          <dt>Usuario</dt>
+          <dd>Operadores de flota por turnos</dd>
+        </div>
+        <div>
+          <dt>Pantallas</dt>
+          <dd>6 vistas en 3 tamaños y 2 temas</dd>
+        </div>
+        <div>
+          <dt>Herramienta</dt>
+          <dd>Figma</dd>
+        </div>
+      </dl>
+      <figure class="g-case-device g-case-device--in-hero">
+        <div class="g-case-device__frame">
+          <img
+            ngSrc="assets/img/veyra-desktop.webp"
+            width="1439"
+            height="900"
+            alt="Monitor en tiempo real de Veyra en modo claro: lista de vehículos, mapa con el recorrido del Camión 042 y panel de telemetría con 78 km/h."
+          />
+        </div>
+        <img
+          class="g-case-device__phone"
+          ngSrc="assets/img/veyra-mobile.webp"
+          width="440"
+          height="780"
+          alt="Veyra en móvil: mapa con el vehículo y una hoja inferior con velocidad, batería y voltaje."
+        />
+      </figure>
+    </div>
+  </section>
+
+  <!-- RETO -->
+  <section class="g-container g-case-section g-case-split" aria-labelledby="reto-title">
+    <div class="g-case-split__title">
+      <p class="g-case-kicker">01 · El reto</p>
+      <h2 class="g-case-h2" id="reto-title">
+        Datos que cambian cada 5 segundos, leídos en un vistazo.
+      </h2>
+    </div>
+    <div class="g-case-split__body">
+      <p>
+        Un operador sigue decenas de vehículos durante todo su turno. Necesita saber cuál está en
+        ruta, cuál perdió la señal y cuál tiene la batería crítica, sin leer tablas ni adivinar si
+        el dato es reciente.
+      </p>
+      <p>
+        El reto de diseño fue hacer visible el tiempo real: que se note qué dato acaba de cambiar,
+        qué tan fresco es y qué pasa cuando la conexión con el servidor de rastreo se cae.
+      </p>
+    </div>
+  </section>
+
+  <!-- IDENTIDAD -->
+  <section class="g-container g-case-section" aria-labelledby="id-title">
+    <div class="g-case-head g-case-head--split">
+      <div>
+        <p class="g-case-kicker">02 · Identidad</p>
+        <h2 class="g-case-h2" id="id-title">La marca nace del marcador</h2>
+      </div>
+      <p class="g-case-lead g-case-lead--narrow">
+        La “V” es un cursor de rumbo: un solo trazo que funciona como logotipo, como favicon de 16
+        px y como marcador que gira en el mapa según el rumbo del vehículo. En modo oscuro cambia a
+        lima para mantener un contraste de 12.4:1.
+      </p>
+    </div>
+    <img
+      class="g-case-img g-case-img--card"
+      [ngSrc]="img + 'veyra-identidad.webp'"
+      width="1600"
+      height="498"
+      alt="Identidad de Veyra: logotipo violeta sobre fondo claro, versión lima sobre fondo oscuro, y el marcador del mapa en sus estados seleccionado, en ruta, sin señal y alerta."
+    />
+  </section>
+
+  <!-- SISTEMA -->
+  <section class="g-container g-case-section" aria-labelledby="ds-title">
+    <div class="g-case-head">
+      <p class="g-case-kicker">03 · Sistema de diseño</p>
+      <h2 class="g-case-h2" id="ds-title">Un cambio de clase y todo cambia de tema</h2>
+      <p class="g-case-lead">
+        Los tokens viven en SASS y en variables CSS: con un solo atributo
+        <code>[data-theme]</code> la interfaz pasa de claro a oscuro. Cada color lleva anotado su
+        contraste, y cada tipografía tiene un trabajo distinto.
+      </p>
+    </div>
+    <img
+      class="g-case-img g-case-img--card"
+      [ngSrc]="img + 'veyra-sistema.webp'"
+      width="1600"
+      height="966"
+      alt="Sistema de diseño de Veyra: paletas de tema claro y oscuro con sus contrastes, tipografías Space Grotesk, IBM Plex Sans e IBM Plex Mono, escala de espaciado de 4 px, radios, elevación, tiempos de movimiento y anillo de foco."
+    />
+    <ul class="g-case-grid g-case-notes" style="--g-case-min: 260px">
+      <li class="g-case-card">
+        <h3 class="g-case-card__title">Space Grotesk</h3>
+        <p class="g-case-card__text">Títulos y cifras destacadas.</p>
+      </li>
+      <li class="g-case-card">
+        <h3 class="g-case-card__title">IBM Plex Sans</h3>
+        <p class="g-case-card__text">Etiquetas, cuerpo y navegación.</p>
+      </li>
+      <li class="g-case-card">
+        <h3 class="g-case-card__title">IBM Plex Mono</h3>
+        <p class="g-case-card__text">Telemetría: IDs, coordenadas y horas.</p>
+      </li>
+      <li class="g-case-card">
+        <h3 class="g-case-card__title">Movimiento con intención</h3>
+        <p class="g-case-card__text">
+          240 ms para el destello de un dato nuevo, 900 ms para el deslizamiento del marcador.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- FLUJO -->
+  <section class="g-container g-case-section" aria-labelledby="flujo-title">
+    <div class="g-case-head">
+      <p class="g-case-kicker">04 · Flujo</p>
+      <h2 class="g-case-h2" id="flujo-title">
+        Del login al monitoreo, con las dos bifurcaciones de riesgo
+      </h2>
+    </div>
+    <ol class="g-case-grid" style="--g-case-min: 160px">
+      <li class="g-case-step">
+        <span class="g-case-step__num">01</span><span class="g-case-step__title">Login</span
+        ><span class="g-case-step__text">Servidor y credenciales</span>
+      </li>
+      <li class="g-case-step">
+        <span class="g-case-step__num">02</span><span class="g-case-step__title">Arranque</span
+        ><span class="g-case-step__text">Skeleton mientras conecta</span>
+      </li>
+      <li class="g-case-step">
+        <span class="g-case-step__num">03</span><span class="g-case-step__title">Dispositivos</span
+        ><span class="g-case-step__text">Selección del vehículo</span>
+      </li>
+      <li class="g-case-step g-case-step--dark">
+        <span class="g-case-step__num">04</span><span class="g-case-step__title">Monitor</span
+        ><span class="g-case-step__text">Mapa y tarjeta de telemetría</span>
+      </li>
+      <li class="g-case-step g-case-step--risk">
+        <span class="g-case-step__num">05 · Riesgo</span
+        ><span class="g-case-step__title">Error de API</span
+        ><span class="g-case-step__text">Reintento automático</span>
+      </li>
+      <li class="g-case-step g-case-step--risk">
+        <span class="g-case-step__num">06 · Riesgo</span
+        ><span class="g-case-step__title">Vacío</span
+        ><span class="g-case-step__text">Sin dispositivos</span>
+      </li>
+      <li class="g-case-step">
+        <span class="g-case-step__num">07</span><span class="g-case-step__title">Alertas</span
+        ><span class="g-case-step__text">Panel lateral por turno</span>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ESTADOS -->
+  <section class="g-container g-case-section" aria-labelledby="est-title">
+    <div class="g-case-head">
+      <p class="g-case-kicker">05 · Estados críticos</p>
+      <h2 class="g-case-h2" id="est-title">Cuando el dato no llega, la interfaz lo dice</h2>
+    </div>
+    <div class="g-case-gallery">
+      <figure>
+        <img
+          class="g-case-img"
+          [ngSrc]="img + 'veyra-cargando.webp'"
+          width="1200"
+          height="709"
+          alt="Monitor cargando: bloques skeleton en la lista, el mapa y la telemetría, con el aviso Conectando con Traccar."
+        />
+        <figcaption>
+          <strong>Carga.</strong> El skeleton usa las mismas cajas y alturas que el contenido real,
+          así nada salta al llegar los datos.
+        </figcaption>
+      </figure>
+      <figure>
+        <img
+          class="g-case-img"
+          [ngSrc]="img + 'veyra-sin-conexion.webp'"
+          width="1200"
+          height="709"
+          alt="Modal Perdimos el enlace con Traccar: explica que la sesión sigue activa, que los últimos datos son de hace 2 minutos, y ofrece Reintentar o Ver caché, con reintento automático 2 de 5."
+        />
+        <figcaption>
+          <strong>Pérdida de conexión.</strong> Dice qué pasó, qué tan viejo es el último dato y qué
+          hacer. Reintenta solo, con espera creciente y un tope de 5 intentos.
+        </figcaption>
+      </figure>
+      <figure>
+        <img
+          class="g-case-img"
+          [ngSrc]="img + 'veyra-alertas-claro.webp'"
+          width="1200"
+          height="709"
+          alt="Panel de alertas en modo claro: batería crítica, sin señal, exceso de velocidad, reconexión y fin de ruta, con un resumen del turno."
+        />
+        <figcaption>
+          <strong>Alertas.</strong> Cada nivel lleva texto, color y forma; nunca depende solo del
+          color.
+        </figcaption>
+      </figure>
+      <figure>
+        <img
+          class="g-case-img g-case-img--on-dark"
+          [ngSrc]="img + 'veyra-alertas-oscuro.webp'"
+          width="1200"
+          height="709"
+          alt="El mismo panel de alertas en modo oscuro, para el turno de la noche."
+        />
+        <figcaption>
+          <strong>Modo oscuro.</strong> Pensado para el turno nocturno: la elevación pasa a bordes y
+          brillo, y el tema se recuerda entre sesiones.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ACCESIBILIDAD -->
+  <section class="g-container g-case-section" aria-labelledby="a11y-title">
+    <div class="g-case-band g-case-band--stack g-case-on-dark">
+      <p class="g-case-kicker">06 · Accesibilidad WCAG 2.1 AA</p>
+      <h2 class="g-case-h2" id="a11y-title">Reglas escritas para quien lo construya</h2>
+      <ul class="g-case-grid" style="--g-case-min: 260px">
+        <li class="g-case-rule">
+          <span class="g-case-rule__value">44 px</span
+          ><span class="g-case-rule__text">Altura táctil mínima y texto de 13 px en adelante.</span>
+        </li>
+        <li class="g-case-rule">
+          <span class="g-case-rule__value">2 px + 3 px</span
+          ><span class="g-case-rule__text"
+            >Anillo de foco con separación; nunca <code>outline: none</code>.</span
+          >
+        </li>
+        <li class="g-case-rule">
+          <span class="g-case-rule__value">CLS = 0</span
+          ><span class="g-case-rule__text"
+            >Los estados de carga reservan el espacio del contenido.</span
+          >
+        </li>
+        <li class="g-case-rule">
+          <span class="g-case-rule__value">reduced-motion</span
+          ><span class="g-case-rule__text"
+            >Con movimiento reducido, el marcador salta directo y el pulso se apaga.</span
+          >
+        </li>
+      </ul>
+    </div>
+  </section>
+</g-case-shell>

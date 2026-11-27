@@ -1,0 +1,179 @@
+/*
+ * ProjectSlide — bundle.css.
+ * Medidas de ProjectSlide/README.md y responsive.md (media 40 px, radio 28,
+ * marco 620, teléfono 26 % / mín. 96 px). Los puntos del navegador y el
+ * esqueleto sin capturas vienen del lienzo Main.
+ *
+ * Apilado (media encima de la info): el alto mínimo de 340 px sobra, porque
+ * la captura es más baja que eso y dejaba un hueco arriba. La media toma el
+ * alto de su contenido y el padding baja a space-6.
+ */
+
+// Media (520) + gap (24) + info (340): media e info lado a lado.
+$slide-row: 884px;
+
+.g-project-slide {
+  container: g-slide / inline-size;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.g-project-slide__media {
+  flex: 1 1 520px;
+  min-width: 0;
+  min-height: 340px;
+  border-radius: 28px;
+  padding: var(--space-10) var(--space-10) 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  @container g-slide (max-width: #{$slide-row - 1px}) {
+    min-height: 0;
+    padding: var(--space-6) var(--space-6) 0;
+  }
+}
+
+.g-project-slide__frame {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  padding-bottom: 28px;
+  margin: 0;
+}
+
+.g-project-slide__browser {
+  position: relative;
+  background: var(--surface-inverse);
+  border-radius: 16px 16px 0 0;
+  padding: 22px var(--space-2) 0;
+  box-shadow: var(--shadow-md);
+}
+
+.g-project-slide__dots {
+  position: absolute;
+  left: 14px;
+  top: var(--space-2);
+  display: flex;
+  gap: 5px;
+
+  > span {
+    width: 7px;
+    height: 7px;
+    border-radius: var(--radius-round);
+    background: var(--highlight);
+
+    &:nth-child(2) {
+      background: var(--attention);
+    }
+
+    &:nth-child(3) {
+      background: var(--success);
+    }
+  }
+}
+
+.g-project-slide__desk {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px 6px 0 0;
+}
+
+.g-project-slide__mob {
+  position: absolute;
+  right: -14px;
+  bottom: 0;
+  width: 26%;
+  min-width: 96px;
+  height: auto;
+  border: 5px solid var(--surface-inverse);
+  border-radius: 22px;
+  background: var(--surface-inverse);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Sin capturas: esqueleto decorativo (lienzo Main, proyecto Avianca). */
+.g-project-slide__placeholder {
+  width: 100%;
+  max-width: 560px;
+  background: var(--surface-inverse);
+  border-radius: 16px 16px 0 0;
+  padding: var(--space-2) var(--space-2) 0;
+}
+
+.g-project-slide__page {
+  height: 260px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  background: var(--surface-raised);
+}
+
+.g-project-slide__line {
+  width: 40%;
+  height: 14px;
+  border-radius: 6px;
+  background: var(--ink);
+}
+
+.g-project-slide__band {
+  height: 90px;
+  border-radius: var(--space-3);
+  background: var(--action);
+}
+
+.g-project-slide__tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+
+  > span {
+    height: 60px;
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+  }
+}
+
+.g-project-slide__info {
+  flex: 1 1 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.g-project-slide__meta {
+  margin: 0;
+  font: 700 14px/1.4 var(--font-body);
+  color: var(--ink-muted);
+}
+
+.g-project-slide__title {
+  margin: 0;
+  font: var(--text-heading-3);
+  color: var(--ink);
+}
+
+.g-project-slide__desc {
+  margin: 0;
+  font: 400 16px/1.65 var(--font-body);
+  color: var(--ink-muted);
+}
+
+.g-project-slide__tags,
+.g-project-slide__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.g-project-slide__actions {
+  gap: 10px;
+}

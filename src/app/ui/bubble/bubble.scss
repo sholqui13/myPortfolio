@@ -1,0 +1,26 @@
+/*
+ * Bubble — bundle.css.
+ * Padding 6 × 18 y posición del destello (-19 / -18, 26 × 26) vienen de
+ * Bubble/README.md: "ajustadas a mano para equilibrio visual; no las cambies".
+ */
+.g-bubble {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 6px 18px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--surface-raised);
+  font: 700 15px/1.2 var(--font-body);
+  color: var(--ink);
+}
+
+.g-bubble__spark {
+  position: absolute;
+  right: -19px;
+  top: -18px;
+  width: 26px;
+  height: 26px;
+  color: var(--highlight);
+}

@@ -1,0 +1,4 @@
+// Breakpoints del design system (tokens --bp-*). Las media queries no aceptan
+// var(), así que se repiten aquí con el mismo valor que tokens.css.
+$bp-tablet: 768px; // --bp-tablet
+$bp-desktop: 1024px; // --bp-desktop

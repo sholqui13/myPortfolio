@@ -1,0 +1,98 @@
+/* Caso Novasec — Bloques que solo usa este caso; el marco, los temas y los bloques comunes están en ../case-study.scss. 
+ * Todo va dentro de .g-case (host de CaseShell): así gana a los estilos base
+ * del marco, que Angular inyecta después de los de esta página.
+ */
+
+.g-case {
+  /* Novasec: celdas unidas por una línea de 1 px. */
+  .g-case-facts--joined {
+    margin-top: var(--space-6);
+    gap: 1px;
+    overflow: hidden;
+    border-radius: var(--case-radius-card);
+    border: 1px solid color-mix(in srgb, var(--case-on-dark) 14%, transparent);
+    background: color-mix(in srgb, var(--case-on-dark) 14%, transparent);
+
+    > div {
+      border: 0;
+      border-radius: 0;
+      background: color-mix(in srgb, var(--case-dark) 92%, transparent);
+    }
+  }
+
+  /* Sección de la vista principal: el fondo oscuro del hero baja 120 px. */
+  .g-case-shot {
+    background: linear-gradient(var(--case-dark) 0, var(--case-dark) 120px, var(--case-bg) 120px);
+  }
+
+  /* Tarjeta con punto de color (Novasec · Decisiones). */
+  .g-case-card--dot {
+    flex-direction: row;
+    gap: 14px;
+    padding: var(--space-5) var(--space-6);
+
+    .g-case-card__title {
+      margin-bottom: 6px;
+      font-size: 17px;
+    }
+
+    &::before {
+      content: '';
+      flex: none;
+      width: 10px;
+      height: 10px;
+      margin-top: var(--space-2);
+      border-radius: var(--radius-round);
+      background: var(--g-dot, var(--case-accent));
+    }
+  }
+
+  .g-case-tech {
+    margin-top: var(--space-8);
+  }
+
+  /* Muestras de color (Novasec · Sistema). */
+  .g-case-swatches {
+    margin: var(--space-1) 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font: var(--text-tag);
+    }
+
+    span {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: var(--g-swatch);
+    }
+  }
+
+  /* Texto + imagen (Novasec · Sistema de diseño). */
+  .g-case-feature {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-10);
+
+    &__text {
+      flex: 1 1 360px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    &__media {
+      flex: 1 1 560px;
+      min-width: 0;
+      margin: 0;
+    }
+  }
+}

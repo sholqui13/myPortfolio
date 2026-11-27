@@ -1,0 +1,45 @@
+/* ProjectCarousel — bundle.css */
+.g-carousel {
+  padding-bottom: var(--space-24);
+}
+
+.g-carousel__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.g-carousel__title {
+  margin: 0;
+}
+
+.g-carousel__controls {
+  display: flex;
+  gap: 10px;
+}
+
+.g-carousel__viewport {
+  touch-action: pan-y;
+}
+
+.g-carousel__dots {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: 6px;
+}
+
+.g-carousel__dot {
+  height: 10px;
+  width: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--ink-inverse-muted);
+  transition: width 0.2s ease;
+}
+
+.g-carousel__dot--active {
+  width: 28px;
+  background: var(--action);
+}

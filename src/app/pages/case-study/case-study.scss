@@ -1,0 +1,863 @@
+@use '../../../styles/breakpoints' as bp;
+
+/*
+ * Casos de estudio — lienzo “Portafolio Stefania Holguin” (CasoNovasec,
+ * CasoVeyra, CasoAvianca).
+ *
+ * Espaciado, tipografía base, contenedor y anchos: tokens de Genuina.
+ * Color, radios y peso de los titulares: tema de cada proyecto, en variables
+ * `--case-*` dentro de `[data-case]` (handoff.md, paso 5). Los valores de
+ * Novasec y Veyra vienen de sus propios sistemas (Novasec-DS, Veyra-App),
+ * tal como aparecen en el lienzo; Avianca usa los tokens de Genuina.
+ */
+
+/* ---------- Temas ---------- */
+
+/* Por defecto (Avianca): Genuina. */
+.g-case,
+[data-case] {
+  --case-bg: var(--surface);
+  --case-surface: var(--surface-raised);
+  --case-border: var(--border);
+  --case-ink: var(--ink);
+  --case-ink-muted: var(--ink-muted);
+  --case-text: var(--ink-muted);
+  --case-kicker: var(--action);
+  --case-link: var(--action);
+  --case-link-hover: var(--action-hover);
+  --case-dark: var(--surface-inverse);
+  --case-dark-raised: var(--surface-inverse-raised);
+  --case-dark-border: var(--border-inverse);
+  --case-on-dark: var(--ink-inverse);
+  --case-on-dark-soft: var(--ink-inverse-muted);
+  --case-on-dark-muted: var(--ink-inverse-muted);
+  --case-accent: var(--attention);
+  --case-on-accent: var(--on-attention);
+  --case-primary: var(--action);
+  --case-on-primary: var(--on-action);
+  --case-focus: var(--focus-ring);
+  --case-focus-dark: var(--focus-ring-inverse);
+  --case-chip-bg: var(--violet-100);
+  --case-chip-ink: var(--ink);
+  --case-code-bg: var(--slate-100);
+  --case-next-arrow: var(--attention);
+  --case-on-next-arrow: var(--on-attention);
+  --case-font-display: var(--font-display);
+  --case-font-mono: var(--font-body);
+  --case-heading-weight: 700;
+  --case-tracking: -0.02em;
+  --case-radius-control: var(--radius-pill);
+  --case-radius-card: var(--radius-lg);
+  --case-radius-img: var(--radius-md);
+  --case-radius-band: var(--radius-xl);
+}
+
+/* Novasec — Novasec-DS: azul profundo, cian de acción, ámbar de atención. Nunito. */
+[data-case='novasec'] {
+  --case-bg: #f8fafc;
+  --case-surface: #ffffff;
+  --case-border: #e2e8f0;
+  --case-ink: #0b1f2d;
+  --case-ink-muted: #475569;
+  --case-text: #374151;
+  --case-kicker: #0e7c7b;
+  --case-link: #0e7c7b;
+  --case-link-hover: #0b5f5e;
+  --case-dark: #0b1f2d;
+  --case-dark-raised: #0b1f2d;
+  --case-dark-border: #1c3445;
+  --case-on-dark: #ffffff;
+  --case-on-dark-soft: #e2e8f0;
+  --case-on-dark-muted: #cbd5e1;
+  --case-accent: #1ec8c8;
+  --case-accent-soft: #5ee6e6;
+  --case-on-accent: #0b1f2d;
+  --case-primary: #1ec8c8;
+  --case-on-primary: #0b1f2d;
+  --case-focus: #0b1f2d;
+  --case-focus-dark: #1ec8c8;
+  --case-chip-bg: #e6f9f9;
+  --case-chip-ink: #0b5f5e;
+  --case-code-bg: #f1f5f9;
+  --case-amber: #f5a623;
+  --case-green: #10b981;
+  --case-font-display: var(--font-body);
+  --case-heading-weight: 900;
+  --case-radius-control: 12px;
+  --case-radius-card: 16px;
+  --case-radius-img: 14px;
+  --case-radius-band: 20px;
+}
+
+/* Veyra — Veyra-App: grafito, violeta de acción, lima en oscuro. */
+[data-case='veyra'] {
+  --case-bg: #f7f6fa;
+  --case-surface: #ffffff;
+  --case-border: #e4e2ea;
+  --case-ink: #16141c;
+  --case-ink-muted: #605c6e;
+  --case-text: #3c3848;
+  --case-kicker: #5a3ee0;
+  --case-link: #5a3ee0;
+  --case-link-hover: #4328c2;
+  --case-dark: #16141c;
+  --case-dark-raised: #1c1926;
+  --case-dark-border: #2e2a3c;
+  --case-dark-line: #3a3550;
+  --case-frame: #232030;
+  --case-on-dark: #f4f2f7;
+  --case-on-dark-soft: #d9d5e4;
+  --case-on-dark-muted: #a29cb4;
+  --case-accent: #c8ff4d;
+  --case-on-accent: #16141c;
+  --case-primary: #6b4ef5;
+  --case-on-primary: #ffffff;
+  --case-focus: #6b4ef5;
+  --case-focus-dark: #c8ff4d;
+  --case-code-bg: #eceaf3;
+  --case-risk-bg: #fff0f3;
+  --case-risk-border: #f5c2ce;
+  --case-risk-ink: #b0213f;
+  --case-next-arrow: #6b4ef5;
+  --case-on-next-arrow: #ffffff;
+  --case-heading-weight: 700;
+  --case-tracking: -0.03em;
+  --case-radius-control: 12px;
+  --case-radius-card: 14px;
+  --case-radius-img: 14px;
+  --case-radius-band: 24px;
+}
+
+/* Avianca — colores de marca tomados de las capturas del sitio: rojo del logo,
+   negro de los botones y teal de enlaces y avisos. El rojo solo va en texto
+   grande o como fondo de texto grande (contraste 4:1). */
+[data-case='avianca'] {
+  --case-bg: #fafafa;
+  --case-surface: #ffffff;
+  --case-ink: #1b1b1b;
+  --case-kicker: #177f8c;
+  --case-link: #177f8c;
+  --case-link-hover: #0e4c54;
+  --case-dark: #1b1b1b;
+  --case-dark-raised: #1b1b1b;
+  --case-on-dark: #ffffff;
+  --case-primary: #1b1b1b;
+  --case-on-primary: #ffffff;
+  --case-focus: #1b1b1b;
+  --case-focus-dark: #ffffff;
+  --case-accent: #ff0000;
+  --case-on-accent: #ffffff;
+  --case-chip-bg: #daf1f4;
+  --case-chip-ink: #0e4c54;
+}
+
+/* ---------- Página ---------- */
+
+.g-case {
+  display: block;
+  min-height: 100vh;
+  background: var(--case-bg);
+  color: var(--case-ink);
+
+  a:not([class]) {
+    color: var(--case-link);
+
+    &:hover {
+      color: var(--case-link-hover);
+    }
+  }
+
+  :where(a, button):focus-visible {
+    outline: 3px solid var(--case-focus);
+    outline-offset: 3px;
+  }
+
+  .g-case-on-dark :where(a, button):focus-visible,
+  .g-case-on-dark:where(a):focus-visible {
+    outline-color: var(--case-focus-dark);
+  }
+
+  code {
+    font-size: 0.875em;
+    background: var(--case-code-bg);
+    padding: 1px var(--space-2);
+    border-radius: 6px;
+  }
+}
+
+.g-case-section {
+  padding-top: var(--space-18);
+
+  @media (min-width: bp.$bp-tablet) {
+    padding-top: var(--space-24);
+  }
+}
+
+.g-case-section--last {
+  padding-bottom: var(--space-12);
+}
+
+.g-case-kicker {
+  margin: 0;
+  font: var(--text-tag);
+  font-family: var(--case-font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--case-kicker);
+}
+
+.g-case-h2 {
+  margin: 0;
+  max-width: 760px;
+  font: var(--case-heading-weight) clamp(28px, 3vw, 40px) / 1.12 var(--case-font-display);
+  letter-spacing: var(--case-tracking);
+  color: var(--case-ink);
+}
+
+.g-case-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.g-case-lead {
+  margin: 0;
+  max-width: 720px;
+  font: var(--text-body);
+  line-height: 1.7;
+  color: var(--case-text);
+}
+
+/* Título a la izquierda, texto a la derecha (El reto). */
+.g-case-split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-12);
+
+  &__title {
+    flex: 1 1 340px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  &__body {
+    flex: 1 1 520px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    font: var(--text-body-lg);
+    color: var(--case-text);
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+/* ---------- Barra del portafolio ---------- */
+
+.g-case-bar {
+  background: var(--case-dark);
+  border-bottom: 1px solid var(--case-dark-border);
+
+  &__nav {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--space-3) var(--space-6);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'home home'
+      'back next';
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+
+    @media (min-width: bp.$bp-tablet) {
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-areas: 'back home next';
+    }
+  }
+
+  &__home {
+    grid-area: home;
+    justify-self: center;
+    display: flex;
+    border-radius: var(--radius-sm);
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: var(--control-min);
+    font: var(--text-label);
+    color: var(--case-on-dark-soft);
+    text-decoration: none;
+
+    &:first-child {
+      grid-area: back;
+      justify-self: start;
+    }
+
+    &:last-child {
+      grid-area: next;
+      justify-self: end;
+    }
+
+    &:hover {
+      color: var(--case-on-dark);
+    }
+  }
+}
+
+/* Avianca: píldora blanca con el logo en una cápsula navy. */
+.g-case-bar--light {
+  background: none;
+  border: 0;
+
+  .g-case-bar__nav {
+    margin-top: var(--space-6);
+    max-width: calc(var(--container-max) - 2 * var(--space-6));
+    width: calc(100% - 2 * var(--space-6));
+    padding: 10px 10px 10px var(--space-4);
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+
+    @media (min-width: bp.$bp-tablet) {
+      border-radius: var(--radius-pill);
+    }
+  }
+
+  .g-case-bar__home {
+    padding: var(--space-1) var(--space-4);
+    background: var(--surface-inverse);
+    border-radius: var(--radius-pill);
+  }
+
+  .g-case-bar__link {
+    padding: 0 var(--space-3);
+    color: var(--ink);
+  }
+
+  .g-case-bar__link--cta {
+    padding: 0 var(--space-5);
+    border-radius: var(--radius-pill);
+    background: var(--action);
+    color: var(--on-action);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      color: var(--on-action);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+}
+
+/* ---------- Hero ---------- */
+
+.g-case-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--case-dark);
+  color: var(--case-on-dark);
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+  }
+
+  /* Degradado del lienzo: oscuro a la izquierda para leer el texto. */
+  &__shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--case-dark) 96%, transparent) 0%,
+      color-mix(in srgb, var(--case-dark) 85%, transparent) 45%,
+      color-mix(in srgb, var(--case-dark) 55%, transparent) 100%
+    );
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding-top: var(--space-18);
+    padding-bottom: var(--space-18);
+
+    @media (min-width: bp.$bp-tablet) {
+      padding-top: var(--space-24);
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  &__title {
+    margin: 0;
+    max-width: 900px;
+    font: var(--case-heading-weight) clamp(36px, calc(5.6vw - 2px), 74px) / 1.04
+      var(--case-font-display);
+    letter-spacing: var(--case-tracking);
+
+    em {
+      font-style: normal;
+      color: var(--case-accent);
+    }
+  }
+
+  &__lead {
+    margin: 0;
+    max-width: 680px;
+    font: var(--text-body-lg);
+    color: var(--case-on-dark-soft);
+  }
+}
+
+.g-case-crumbs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font: var(--text-caption);
+  font-weight: 400;
+  color: var(--case-on-dark-muted);
+
+  a {
+    color: inherit;
+  }
+
+  [aria-current] {
+    font-weight: 700;
+    color: var(--case-on-dark);
+  }
+
+  .g-case-hero--light & {
+    color: var(--ink-muted);
+
+    [aria-current] {
+      color: var(--ink);
+    }
+  }
+}
+
+/* Etiqueta “Caso de estudio · …”. */
+.g-case-badge {
+  margin: 0;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  border: 1px solid color-mix(in srgb, var(--case-accent) 50%, transparent);
+  background: color-mix(in srgb, var(--case-accent) 12%, transparent);
+  font: var(--text-tag);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--case-accent-soft, var(--case-accent));
+
+  &__dot {
+    width: var(--space-2);
+    height: var(--space-2);
+    border-radius: var(--radius-round);
+    background: var(--case-accent);
+  }
+
+  .g-case-hero--light & {
+    border: 0;
+    background: var(--violet-100);
+    color: var(--ink);
+    font: var(--text-caption);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+/* ---------- Botones del caso ---------- */
+
+.g-case-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.g-case-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--control-lg);
+  padding: 0 var(--space-6);
+  border-radius: var(--case-radius-control);
+  border: 2px solid transparent;
+  font: var(--text-label);
+  font-size: 16px;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &--primary {
+    background: var(--case-primary);
+    color: var(--case-on-primary);
+  }
+
+  &--outline {
+    border-color: color-mix(in srgb, var(--case-on-dark) 55%, transparent);
+    color: var(--case-on-dark);
+  }
+}
+
+/* ---------- Ficha (dl) ---------- */
+
+.g-case-facts {
+  margin: var(--space-4) 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: var(--space-3);
+
+  > div {
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--case-radius-img);
+    background: var(--case-dark-raised);
+    border: 1px solid var(--case-dark-border);
+  }
+
+  dt {
+    margin-bottom: 6px;
+    font: var(--text-tag);
+    font-family: var(--case-font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--case-accent-soft, var(--case-on-dark-muted));
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 700;
+  }
+}
+
+/* ---------- Capturas ---------- */
+
+.g-case-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--case-radius-img);
+  border: 1px solid var(--case-border);
+}
+
+.g-case-img--raised {
+  box-shadow: var(--shadow-md);
+}
+
+.g-case-img--on-dark {
+  border-color: var(--case-dark-border);
+}
+
+/* Escritorio en un marco oscuro + teléfono superpuesto. */
+.g-case-device {
+  position: relative;
+  /* Solo vertical: el centrado horizontal lo pone .g-container. */
+  margin-block: 0;
+
+  &__frame {
+    padding: 10px;
+    border-radius: 18px;
+    border: 1px solid var(--case-dark-border);
+    background: var(--case-dark);
+    box-shadow: var(--shadow-md);
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  }
+
+  &__phone {
+    position: absolute;
+    right: clamp(8px, 4vw, 64px);
+    bottom: calc(var(--space-12) * -1);
+    width: clamp(96px, 17%, 210px);
+    height: auto;
+    border: 6px solid var(--case-dark);
+    border-radius: var(--radius-lg);
+    background: var(--case-dark);
+    box-shadow: var(--shadow-lg);
+  }
+
+  figcaption {
+    margin-top: var(--space-18);
+    font: var(--text-caption);
+    font-weight: 400;
+    color: var(--case-ink-muted);
+  }
+}
+
+/* ---------- Grillas y tarjetas ---------- */
+
+.g-case-grid {
+  --g-case-min: 280px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--g-case-min)), 1fr));
+  gap: var(--space-5);
+}
+
+.g-case-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--space-6);
+  border-radius: var(--case-radius-card);
+  border: 1px solid var(--case-border);
+  background: var(--case-surface);
+
+  &__num {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--case-dark);
+    color: var(--case-accent);
+    font-weight: 900;
+  }
+
+  &__title {
+    margin: 0;
+    font: var(--text-heading-4);
+    font-family: var(--case-font-display);
+    font-weight: 800;
+    color: var(--case-ink);
+  }
+
+  &__text {
+    margin: 0;
+    font: var(--text-body-sm);
+    color: var(--case-ink-muted);
+  }
+}
+
+/* Chips (reglas, tecnologías, alcance). */
+.g-case-chips {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font: var(--text-tag);
+
+  li {
+    padding: 7px var(--space-3);
+    border-radius: var(--radius-pill);
+    background: var(--case-chip-bg);
+    color: var(--case-chip-ink);
+  }
+}
+
+.g-case-chips--outline li {
+  padding: 7px 14px;
+  border: 1.5px solid var(--case-border);
+  background: none;
+  color: var(--case-ink);
+  font-size: 14px;
+}
+
+/* Galería de capturas con pie. */
+.g-case-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+  gap: var(--space-6);
+
+  figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  figcaption {
+    font: var(--text-caption);
+    font-weight: 400;
+    color: var(--case-ink-muted);
+
+    strong {
+      color: var(--case-ink);
+    }
+  }
+}
+
+/* Bloque oscuro redondeado. */
+.g-case-band {
+  margin-top: var(--space-6);
+  padding: var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+  border-radius: var(--case-radius-band);
+  background: var(--case-dark);
+  color: var(--case-on-dark);
+
+  @media (min-width: bp.$bp-tablet) {
+    padding: var(--space-10);
+  }
+
+  &__text {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+
+    h3 {
+      margin: 0;
+      font: var(--case-heading-weight) 24px/1.2 var(--case-font-display);
+    }
+
+    p {
+      margin: 0;
+      font: var(--text-body);
+      line-height: 1.65;
+      color: var(--case-on-dark-muted);
+    }
+  }
+
+  &__phones {
+    flex: 1 1 320px;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+
+    img {
+      width: 46%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 20px;
+      border: 5px solid var(--case-dark-border);
+    }
+  }
+
+  /* Variante con titular y tarjetas (Veyra · Accesibilidad). */
+  &--stack {
+    display: block;
+
+    .g-case-kicker {
+      margin-bottom: var(--space-3);
+      color: var(--case-accent);
+    }
+
+    .g-case-h2 {
+      margin-bottom: var(--space-8);
+      color: var(--case-on-dark);
+    }
+  }
+}
+
+/* ---------- Siguiente proyecto ---------- */
+
+.g-case-next {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  background: var(--case-dark);
+  color: var(--case-on-dark);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  @media (min-width: bp.$bp-tablet) {
+    padding: var(--space-10) var(--space-12);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  &:focus-visible {
+    outline-color: var(--case-focus);
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  &__kicker {
+    color: var(--case-accent);
+  }
+
+  &__title {
+    font: var(--case-heading-weight) clamp(26px, 3vw, 38px) / 1.1 var(--case-font-display);
+    letter-spacing: var(--case-tracking);
+  }
+
+  &__arrow {
+    flex: none;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-round);
+    background: var(--case-next-arrow);
+    color: var(--case-on-next-arrow);
+  }
+}
+
+/* ---------- Pie ---------- */
+
+.g-case-footer {
+  border-top: 1px solid var(--case-border);
+
+  &__text {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--space-6);
+    font: var(--text-caption);
+    font-weight: 400;
+    color: var(--case-ink-muted);
+  }
+}
+
+.g-case-on-dark code {
+  background: color-mix(in srgb, var(--case-on-dark) 12%, transparent);
+}

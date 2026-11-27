@@ -1,0 +1,12 @@
+/* Timeline — bundle.css · ancho máximo 1040 px según Timeline/README.md */
+.g-timeline-section {
+  max-width: 1040px;
+}
+
+.g-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}

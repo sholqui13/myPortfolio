@@ -1,0 +1,29 @@
+/* SiteFooter — bundle.css */
+.g-site-footer {
+  background: var(--surface-inverse);
+  color: var(--ink-inverse);
+}
+
+.g-site-footer__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.g-site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.g-site-footer__copy {
+  margin: 0;
+  font: 400 14px/1.5 var(--font-body);
+  color: var(--ink-inverse-muted);
+}

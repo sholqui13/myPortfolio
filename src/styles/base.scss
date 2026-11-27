@@ -1,0 +1,149 @@
+/*
+ * Genuina — base global.
+ * Reset mínimo, body, contenedor, texto oculto, foco y reduced-motion.
+ * Solo variables de tokens.css (copiado sin editar del design system).
+ * Los estilos de cada componente viven junto a su componente (BEM g-*).
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font: var(--text-body);
+  color: var(--ink);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+/* Contenedor de página: max-width + gutter. */
+.g-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Texto solo para lectores de pantalla. */
+.g-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Enlace "Saltar al contenido": primer elemento con foco de cada página. */
+.g-skip {
+  position: absolute;
+  left: var(--space-4);
+  top: var(--space-4);
+  z-index: 100;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--surface-inverse);
+  color: var(--ink-inverse);
+  font: var(--text-label);
+  text-decoration: none;
+  transform: translateY(calc(-100% - var(--space-6)));
+
+  &:focus-visible {
+    transform: none;
+    outline: 3px solid var(--focus-ring-inverse);
+    outline-offset: 3px;
+  }
+}
+
+/* Foco visible: 3 px con 3 px de separación (accessibility.md). */
+:where(.g-button, .g-icon-button, .g-link, .g-text-field__input):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.g-on-dark :where(.g-button, .g-icon-button, .g-link, .g-text-field__input):focus-visible {
+  outline-color: var(--focus-ring-inverse);
+}
+
+/* Movimiento: todo se apaga con reduced-motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Enlaces de texto sin clase (lienzo Main: color action, hover action-hover).
+   Los componentes (g-button, g-link…) definen su propio color. */
+a:not([class]) {
+  color: var(--action);
+
+  &:hover {
+    color: var(--action-hover);
+  }
+}
+
+:where(a):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.g-on-dark :where(a):focus-visible {
+  outline-color: var(--focus-ring-inverse);
+}
+
+/* Secciones de página (bundle.css). Solo padding vertical: así se combina
+   con .g-container sin anular su gutter lateral. */
+.g-section {
+  padding-block: var(--space-24) var(--space-18);
+}
+
+.g-section__title {
+  margin: 0 0 var(--space-12);
+  font: 700 clamp(28px, 3vw, 40px) / 1.2 var(--font-display);
+  color: var(--ink);
+
+  em {
+    font-style: normal;
+    color: var(--action);
+  }
+}
+
+.g-section__title--center {
+  text-align: center;
+}

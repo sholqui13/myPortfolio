@@ -1,0 +1,16 @@
+@use '../../../styles/breakpoints' as bp;
+
+/* Home — lienzo Main. La barra móvil ocupa el mismo hueco superior que
+   SiteHeader (padding-top space-6) y desaparece cuando entra SiteHeader. */
+.g-home__mobile-bar {
+  padding-top: var(--space-6);
+
+  @media (min-width: bp.$bp-desktop) {
+    display: none;
+  }
+}
+
+/* Las anclas del menú no quedan pegadas al borde superior al saltar. */
+.g-home [id] {
+  scroll-margin-top: var(--space-6);
+}
