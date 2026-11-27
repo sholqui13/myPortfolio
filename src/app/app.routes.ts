@@ -18,6 +18,12 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/case-study/veyra/veyra-case').then((m) => m.VeyraCase),
   },
   {
+    path: 'proyectos/avianca',
+    title: 'Caso de estudio: Avianca · Stefania Holguin',
+    loadComponent: () =>
+      import('./pages/case-study/avianca/avianca-case').then((m) => m.AviancaCase),
+  },
+  {
     path: 'dev/ui',
     title: 'Genuina UI · /dev/ui',
     loadComponent: () => import('./pages/dev-ui/dev-ui').then((m) => m.DevUi),

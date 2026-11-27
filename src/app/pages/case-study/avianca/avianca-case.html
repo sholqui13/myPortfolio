@@ -1,0 +1,240 @@
+<g-case-shell
+  slug="avianca"
+  bar="light"
+  [forward]="{ label: 'Siguiente: Novasec', route: '/proyectos/novasec' }"
+  note="Proyecto realizado como parte del equipo de FLYR Labs. Se omiten detalles confidenciales."
+>
+  <!-- HERO -->
+  <section class="g-case-hero g-case-hero--light" aria-labelledby="caso-title">
+    <div class="g-container g-case-hero__inner">
+      <nav aria-label="Ruta de navegación">
+        <ol class="g-case-crumbs">
+          <li><a routerLink="/" fragment="portafolio">Portafolio</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Avianca</li>
+        </ol>
+      </nav>
+      <p class="g-case-badge">Caso de estudio · Front-End · Accesibilidad</p>
+      <h1 class="g-case-hero__title" id="caso-title">
+        Reservar un vuelo debería ser fácil para <em>todas</em> las personas.
+      </h1>
+      <p class="g-case-hero__lead">
+        Durante más de tres años en FLYR Labs desarrollé interfaces del sitio web de Avianca: el
+        flujo de reserva de vuelos y el área de miembros LifeMiles, cuidando accesibilidad,
+        rendimiento y consistencia en todos los navegadores.
+      </p>
+      <dl class="g-case-facts g-case-facts--light">
+        <div>
+          <dt>Mi rol</dt>
+          <dd>Software Developer (Front-End)</dd>
+        </div>
+        <div>
+          <dt>Empresa</dt>
+          <dd>FLYR Labs para Avianca</dd>
+        </div>
+        <div>
+          <dt>Periodo</dt>
+          <dd>Abr 2023 – Jul 2026</dd>
+        </div>
+        <div>
+          <dt>Equipo</dt>
+          <dd>Scrum multidisciplinario</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- VISTA PRINCIPAL -->
+  <section class="g-case-shot" aria-label="Vista del producto">
+    <figure class="g-container g-case-device">
+      <div class="g-case-device__frame">
+        <img
+          [ngSrc]="img + 'avianca-inicio.webp'"
+          width="1681"
+          height="938"
+          priority
+          alt="Inicio de avianca.com: buscador de vuelos de Bogotá a Medellín con el selector de pasajeros abierto para adultos, jóvenes, niños y bebés."
+        />
+      </div>
+      <img
+        class="g-case-device__phone"
+        [ngSrc]="img + 'avianca-movil-ofertas.webp'"
+        width="426"
+        height="790"
+        alt="Ofertas desde Medellín en móvil: tarjetas de Cali y Bogotá con foto de la ciudad y precio de ida y vuelta."
+      />
+      <figcaption>Buscador de vuelos en escritorio y ofertas en móvil.</figcaption>
+    </figure>
+  </section>
+
+  <!-- RETO -->
+  <section class="g-container g-case-section g-case-split" aria-labelledby="reto-title">
+    <div class="g-case-split__title">
+      <p class="g-case-kicker">01 — El reto</p>
+      <h2 class="g-case-h2" id="reto-title">
+        Flujos críticos, millones de personas, cero margen para fricción
+      </h2>
+    </div>
+    <div class="g-case-split__body">
+      <p>
+        Reservar un vuelo y gestionar una cuenta de lealtad son tareas con muchos pasos, formularios
+        y decisiones. Cada barrera (un botón que no se alcanza con teclado, una vista que carga
+        lento en el celular, un error poco claro) puede costar una reserva.
+      </p>
+      <p>
+        Mi trabajo fue construir y mejorar esas interfaces para que fueran accesibles, rápidas y
+        consistentes en Chrome, Safari, Edge y Firefox, manteniendo el contenido editable en el CMS
+        Umbraco.
+      </p>
+    </div>
+  </section>
+
+  <!-- FLUJO DE RESERVA -->
+  <section class="g-container g-case-section" aria-labelledby="flujo-title">
+    <div class="g-case-head">
+      <p class="g-case-kicker">02 — El flujo de reserva</p>
+      <h2 class="g-case-h2" id="flujo-title">Del vuelo al pago, paso a paso</h2>
+    </div>
+    <div class="g-case-gallery">
+      <figure>
+        <img
+          class="g-case-img"
+          [ngSrc]="img + 'avianca-tarifas.webp'"
+          width="1555"
+          height="926"
+          alt="Selección de vuelo Bogotá–Medellín: calendario de precios por día, filtros y las tarifas Basic, Classic y Flex con lo que incluye cada una."
+        />
+        <figcaption>
+          <strong>1. Vuelo y tarifa.</strong> Precios por día, filtros y comparación de tarifas.
+        </figcaption>
+      </figure>
+      <figure>
+        <img
+          class="g-case-img"
+          [ngSrc]="img + 'avianca-pasajeros.webp'"
+          width="1496"
+          height="808"
+          alt="Formulario de información de pasajeros: género, nombres, apellidos, fecha de nacimiento, nacionalidad, número LifeMiles y servicios de accesibilidad."
+        />
+        <figcaption>
+          <strong>2. Pasajeros.</strong> Formulario con ayuda contextual y servicios de
+          accesibilidad.
+        </figcaption>
+      </figure>
+      <figure>
+        <img
+          class="g-case-img"
+          [ngSrc]="img + 'avianca-asientos.webp'"
+          width="1032"
+          height="838"
+          alt="Mapa de asientos: filas 4 a 10 agrupadas en Economy y Plus, con el asiento 6E seleccionado y su precio."
+        />
+        <figcaption>
+          <strong>3. Asientos.</strong> Mapa por categorías con precio y selección visibles.
+        </figcaption>
+      </figure>
+      <figure>
+        <img
+          class="g-case-img"
+          [ngSrc]="img + 'avianca-pago.webp'"
+          width="1196"
+          height="944"
+          alt="Pago: tarjeta de crédito o débito, PSE o Apple Pay, junto al resumen de compra con el total y los vuelos de ida y regreso."
+        />
+        <figcaption>
+          <strong>4. Pago.</strong> Métodos de pago y resumen de compra siempre a la vista.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- LO QUE HICE -->
+  <section class="g-case-section" aria-labelledby="hice-title">
+    <div class="g-case-strip">
+      <div class="g-container">
+        <div class="g-case-head">
+          <p class="g-case-kicker">03 — Lo que hice</p>
+          <h2 class="g-case-h2" id="hice-title">Cuatro frentes de trabajo</h2>
+        </div>
+        <ul class="g-case-grid" style="--g-case-min: 260px">
+          @for (a of areas; track a.title) {
+            <li class="g-case-card g-case-card--soft">
+              <span class="g-case-icon" [class]="'g-case-icon--' + a.tone" aria-hidden="true">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  focusable="false"
+                >
+                  @for (c of a.circles ?? []; track $index) {
+                    <circle [attr.cx]="c.cx" [attr.cy]="c.cy" [attr.r]="c.r" />
+                  }
+                  @for (r of a.rects ?? []; track $index) {
+                    <rect
+                      [attr.x]="r.x"
+                      [attr.y]="r.y"
+                      [attr.width]="r.width"
+                      [attr.height]="r.height"
+                      [attr.rx]="r.rx"
+                    />
+                  }
+                  @for (d of a.paths; track $index) {
+                    <path [attr.d]="d" />
+                  }
+                </svg>
+              </span>
+              <h3 class="g-case-card__title">{{ a.title }}</h3>
+              <p class="g-case-card__text">{{ a.text }}</p>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section class="g-container g-case-section" aria-labelledby="res-title">
+    <div class="g-case-head">
+      <p class="g-case-kicker">04 — Resultados</p>
+      <h2 class="g-case-h2" id="res-title">Lo que cambió</h2>
+    </div>
+    <!-- Pendiente: dos métricas del lienzo siguen como [Métrica] (tiempo de carga o
+         Lighthouse, y vistas auditadas con WCAG). Se añaden cuando haya datos reales. -->
+    <ul class="g-case-grid" style="--g-case-min: 260px">
+      <li class="g-case-metric g-case-metric--attention">
+        <span class="g-case-metric__value">4</span>
+        <span class="g-case-metric__text"
+          >navegadores validados en cada entrega: Chrome, Safari, Edge y Firefox</span
+        >
+      </li>
+    </ul>
+    <blockquote class="g-case-quote">
+      <p>
+        “La accesibilidad no es una capa extra al final: es una forma de construir desde el primer
+        componente.”
+      </p>
+      <footer>Mi principal aprendizaje del proyecto</footer>
+    </blockquote>
+  </section>
+
+  <!-- SIGUIENTE -->
+  <section class="g-container g-case-section g-case-section--last" aria-labelledby="sig-title">
+    <div class="g-case-cta g-on-dark g-case-on-dark">
+      <div class="g-case-cta__text">
+        <p class="g-case-cta__kicker">Siguiente</p>
+        <h2 class="g-case-cta__title" id="sig-title">
+          ¿Te gustaría ver más o conversar sobre tu proyecto?
+        </h2>
+      </div>
+      <div class="g-case-cta__actions">
+        <a g-button variant="light" routerLink="/proyectos/novasec">Siguiente: Novasec</a>
+        <a g-button variant="attention" [href]="links.mailto">Escríbeme</a>
+      </div>
+    </div>
+  </section>
+</g-case-shell>

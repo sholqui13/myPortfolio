@@ -2,12 +2,14 @@ import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
+import { AviancaCase } from './avianca/avianca-case';
 import { NovasecCase } from './novasec/novasec-case';
 import { VeyraCase } from './veyra/veyra-case';
 
 const cases: [string, Type<unknown>, string | null][] = [
   ['novasec', NovasecCase, 'veyra'],
   ['veyra', VeyraCase, 'avianca'],
+  ['avianca', AviancaCase, null],
 ];
 
 describe('Casos de estudio', () => {

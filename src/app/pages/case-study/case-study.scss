@@ -128,6 +128,29 @@
   --case-radius-band: 24px;
 }
 
+/* Avianca — colores de marca tomados de las capturas del sitio: rojo del logo,
+   negro de los botones y teal de enlaces y avisos. El rojo solo va en texto
+   grande o como fondo de texto grande (contraste 4:1). */
+[data-case='avianca'] {
+  --case-bg: #fafafa;
+  --case-surface: #ffffff;
+  --case-ink: #1b1b1b;
+  --case-kicker: #177f8c;
+  --case-link: #177f8c;
+  --case-link-hover: #0e4c54;
+  --case-dark: #1b1b1b;
+  --case-dark-raised: #1b1b1b;
+  --case-on-dark: #ffffff;
+  --case-primary: #1b1b1b;
+  --case-on-primary: #ffffff;
+  --case-focus: #1b1b1b;
+  --case-focus-dark: #ffffff;
+  --case-accent: #ff0000;
+  --case-on-accent: #ffffff;
+  --case-chip-bg: #daf1f4;
+  --case-chip-ink: #0e4c54;
+}
+
 /* ---------- Página ---------- */
 
 .g-case {
