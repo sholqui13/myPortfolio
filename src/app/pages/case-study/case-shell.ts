@@ -34,7 +34,8 @@ export type CaseSlug = 'novasec' | 'veyra' | 'avianca';
     '[attr.data-case]': 'slug()',
   },
   template: `
-    <a class="g-skip" href="#caso">Saltar al contenido</a>
+    <!-- Ruta relativa a <base href>: así el salto funciona también bajo /myPortfolio/. -->
+    <a class="g-skip" [href]="'proyectos/' + slug() + '#caso'">Saltar al contenido</a>
 
     <header
       class="g-case-bar"

@@ -29,7 +29,7 @@ describe('CaseShell', () => {
     expect(shell.getAttribute('data-case')).toBe('veyra');
     expect(shell.classList).toContain('g-case');
     expect(el.querySelector('main#caso h1')?.textContent).toBe('Título');
-    expect(el.querySelector('a.g-skip')?.getAttribute('href')).toBe('#caso');
+    expect(el.querySelector('a.g-skip')?.getAttribute('href')).toBe('proyectos/veyra#caso');
     const links = el.querySelectorAll<HTMLAnchorElement>('.g-case-bar a');
     expect(links.length).toBe(3);
     expect(links[0].getAttribute('href')).toBe('/#portafolio');
