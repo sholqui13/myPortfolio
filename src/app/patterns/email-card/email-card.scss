@@ -1,0 +1,73 @@
+/* Host: mismo ancho máximo que el formulario de contacto. */
+g-email-card {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+}
+
+/*
+ * EmailCard — tarjeta clara (surface-raised, borde --border, --radius-lg) con
+ * ícono en caja violeta, etiqueta + correo y botón Copiar a la derecha.
+ * Estrecho: el botón baja a su propia línea a todo el ancho.
+ */
+.g-email-card {
+  container: g-email-card / inline-size;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface-raised);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: left;
+}
+
+.g-email-card__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--violet-100);
+  color: var(--action);
+}
+
+.g-email-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+.g-email-card__label {
+  font: 800 12px/1.4 var(--font-body);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.g-email-card__link {
+  font: 800 16px/1.4 var(--font-body);
+  color: var(--action);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+
+  &:hover {
+    color: var(--action-hover);
+  }
+}
+
+.g-email-card__copy {
+  flex: none;
+  margin-left: auto;
+
+  @container g-email-card (max-width: 379px) {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}

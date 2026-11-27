@@ -1,0 +1,93 @@
+/* Host: ocupa el ancho disponible hasta 560 px. */
+g-contact-form {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+}
+
+/*
+ * ContactForm — nombre, mensaje y correo en cajas con borde de 2 px (píldora;
+ * el mensaje con --radius-lg). El botón de envío va aparte, debajo de los campos.
+ */
+
+// Por debajo de este ancho de contenedor el botón ocupa todo el ancho.
+$narrow: 340px;
+
+.g-contact-form {
+  container: g-contact-form / inline-size;
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  text-align: left;
+}
+
+.g-contact-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Campos sueltos (nombre y mensaje): mismo borde y fondo que la píldora del correo. */
+.g-contact-form__box {
+  width: 100%;
+  box-sizing: border-box;
+  /* Misma altura que la píldora: control (control-md) + padding (2 × 6) + borde (2 × 2). */
+  min-height: calc(var(--control-md) + 16px);
+  background: var(--surface-raised);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-pill);
+  padding: 6px var(--space-5);
+
+  &:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+}
+
+.g-contact-form__box--area {
+  min-height: 140px;
+  border-radius: var(--radius-lg);
+  padding-block: var(--space-3);
+  resize: vertical;
+}
+
+/* Botón de envío fuera de los campos: alineado a la derecha; en estrecho, a todo el ancho. */
+.g-contact-form__submit {
+  align-self: flex-end;
+
+  @container g-contact-form (max-width: #{$narrow - 1px}) {
+    align-self: stretch;
+    justify-content: center;
+  }
+}
+
+.g-contact-form__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.g-contact-form__error,
+.g-contact-form__status {
+  margin: 0;
+  padding-left: var(--space-5);
+  font: 700 14px/1.5 var(--font-body);
+}
+
+.g-contact-form__error {
+  color: var(--ink);
+}
+
+.g-contact-form__status {
+  min-height: 22px;
+  color: var(--success-text);
+}
+
+.g-contact-form__status--error {
+  color: var(--ink);
+}

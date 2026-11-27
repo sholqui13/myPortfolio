@@ -16,7 +16,7 @@ import {
 import {
   CheckList,
   ContactService,
-  EmailCapture,
+  ContactForm,
   ProjectSlide,
   ServiceCard,
   SocialLinks,
@@ -109,7 +109,7 @@ const SHADOWS = ['sm', 'md', 'lg'];
     ServiceCard,
     TimelineItem,
     ProjectSlide,
-    EmailCapture,
+    ContactForm,
     SocialLinks,
     CheckList,
   ],

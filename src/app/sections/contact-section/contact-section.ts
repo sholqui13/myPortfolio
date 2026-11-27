@@ -1,11 +1,11 @@
 import { Component, ViewEncapsulation, input } from '@angular/core';
-import { CheckList, EmailCapture } from '../../patterns';
+import { CheckList, ContactForm, EmailCard } from '../../patterns';
 import { LINKS } from '../../data/links';
 
-/** ContactSection — organismo. Titular, EmailCapture, condiciones y correo directo. */
+/** ContactSection — organismo. Titular, ContactForm, correo directo (EmailCard) y condiciones. */
 @Component({
   selector: 'g-contact-section',
-  imports: [EmailCapture, CheckList],
+  imports: [ContactForm, EmailCard, CheckList],
   encapsulation: ViewEncapsulation.None,
   styleUrl: './contact-section.scss',
   template: `
@@ -13,11 +13,9 @@ import { LINKS } from '../../data/links';
       <h2 class="g-contact__title" id="g-cta-title">
         ¿Tienes un proyecto increíble?<br /><em>¡Hablemos!</em>
       </h2>
-      <g-email-capture fieldId="correo" />
+      <g-contact-form idPrefix="contacto" />
+      <g-email-card [email]="links.email" labelId="contacto-correo-directo" />
       <g-check-list [items]="checks()" />
-      <p class="g-contact__alt">
-        O escríbeme directo a <a [href]="links.mailto">{{ links.email }}</a>
-      </p>
     </section>
   `,
 })
