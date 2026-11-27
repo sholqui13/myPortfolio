@@ -9,6 +9,7 @@ import {
   ServicesSection,
   SiteFooter,
   SiteHeader,
+  SkillsSection,
   Timeline,
   WhySection,
 } from '../../sections';
@@ -27,6 +28,7 @@ export const HOME_DESCRIPTION =
     MobileMenu,
     Hero,
     ServicesSection,
+    SkillsSection,
     Timeline,
     WhySection,
     ProjectCarousel,
@@ -46,6 +48,7 @@ export const HOME_DESCRIPTION =
     <main id="contenido" class="g-home">
       <g-hero />
       <g-services-section />
+      <g-skills-section />
       <g-timeline />
       <g-why-section />
       <g-project-carousel />
